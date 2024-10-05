@@ -27,7 +27,7 @@ public class OtherworldManager : MonoBehaviour
     private Image portraitTopClothing;
 
     [SerializeField]
-    private TextMeshProUGUI contractText;
+    private TypewritingText contractText;
 
     [SerializeField]
     private TextMeshProUGUI dayText;
@@ -53,7 +53,7 @@ public class OtherworldManager : MonoBehaviour
     void Update()
     {
         if (!startedDay) {
-            contractAnimator.SetTrigger("Hide");
+            HideContract();
             return;
         }
 
@@ -64,7 +64,7 @@ public class OtherworldManager : MonoBehaviour
 
         if(otherworlderQueue.IsProgressing()) {
             if(preparedContract) {
-                contractAnimator.SetTrigger("Hide");
+                HideContract();
                 preparedContract = false;
             }
         }
@@ -74,7 +74,6 @@ public class OtherworldManager : MonoBehaviour
                 Globals global = Globals.Instance;
                 HumanData data = otherworlderQueue.GetNextHumanData();
                 contractName.text = data.firstName + " " + data.surname;
-                contractAnimator.SetTrigger("Show");
 
                 portraitBody.color = data.skinColor;
                 portraitHair.color = data.hairColor;
@@ -88,11 +87,19 @@ public class OtherworldManager : MonoBehaviour
                 if(data.age > AgeGroup.ADULT) {
                     memoryText += " After becoming an old man, " + global.GeezerhoodMemories[data.adulthoodMemory].text;
                 }
-                contractText.text = memoryText;
+                contractText.SetText(memoryText);
+                contractText.StartTyping();
+
+                contractAnimator.SetTrigger("Show");
 
                 preparedContract = true;
             }
         }
+    }
+
+    private void HideContract() {
+        contractAnimator.SetTrigger("Hide");
+        contractText.StopTyping();
     }
 
     private void PrepareNewDay() {
