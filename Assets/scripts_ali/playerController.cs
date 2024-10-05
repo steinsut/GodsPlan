@@ -33,29 +33,68 @@ public class playerController : MonoBehaviour
 
     private bool onAir = true;
 
+    [SerializeField]
+    private float verticalSpeed = 1f;
+    private int ladderCount = 0;
+
+    private bool controllable = true;
+
+    void stopControls()
+    {
+        controllable = false;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("hazard"))
+        {
+            stopControls();
+            Console.WriteLine("you failed!");
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
-
-        float verticalInput = Input.GetAxis("Jump");
-        if (verticalInput > jumpThreshold)
+        if (!controllable)
         {
-            if (onAir)
-            {
-                pressTime += Time.deltaTime;
-            }
-            verticalMovement = verticalInput * jumpStrengthModifier;
-        } else {
-            pressTime = 0.0f;
-            verticalMovement = 0.0f;
+            return;
         }
+        float verticalInput = Input.GetAxis("Vertical");
+        if (ladderCount > 0)
+        {
+            verticalMovement = verticalInput * verticalSpeed;
+        } else
+        {
+            float jumpInput = Input.GetAxis("Jump");
+            if (jumpInput > jumpThreshold)
+            {
+                if (onAir)
+                {
+                    pressTime += Time.deltaTime;
+                }
+                verticalMovement = jumpInput * jumpStrengthModifier;
+            } else {
+                pressTime = 0.0f;
+                verticalMovement = 0.0f;
+            }
+        }
+
 
         if (rigidbody.linearVelocityY < -downwardVelocityTrigger)
         {
-            pressTime = Math.Clamp(pressTime -= Time.deltaTime * 2, 0.0f, pressTime);
+            pressTime -= Time.deltaTime * 2;
+            pressTime = Math.Clamp(pressTime, 0.0f, pressTime);
         }
 
-        rigidbody.gravityScale = 1 - Mathf.Clamp(pressTime - pressTimeMax, 0, pressTimeMax) * gravitySlowdownModifier;
+        if (ladderCount > 0)
+        {
+            rigidbody.gravityScale = 0;
+        } else
+        {
+            rigidbody.gravityScale = 1 - Mathf.Clamp(pressTime - pressTimeMax, 0, pressTimeMax) * gravitySlowdownModifier;
+        }
+
 
         float horizontalInput = Input.GetAxis("Horizontal");
         horizontalMovement = horizontalInput * speed;
@@ -63,19 +102,43 @@ public class playerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rigidbody.linearVelocityX = horizontalMovement;
-        if (footColider.IsTouchingLayers(Physics2D.GetLayerCollisionMask(10)))
+        if (!controllable)
         {
-            if (onAir)
-            {
-                pressTime = 0;
-            }
-            onAir = false;
-            rigidbody.AddForceY(verticalMovement);
+            return;
+        }
+        rigidbody.linearVelocityX = horizontalMovement;
+        if (ladderCount > 0)
+        {
+            rigidbody.linearVelocityY = verticalMovement;
         } else
         {
-            onAir = true;
+            if (footColider.IsTouchingLayers(LayerMask.GetMask("canWalk")))
+            {
+                if (onAir)
+                {
+                    pressTime = 0;
+                }
+                onAir = false;
+                rigidbody.AddForceY(verticalMovement);
+            }
+            else
+            {
+                onAir = true;
+            }
+
         }
 
+    }
+
+    void ladderEnterTrigger()
+    {
+        // Called through messages when a ladder detects a valid trigger entry by the player
+        ladderCount += 1;
+    }
+
+    void ladderExitTrigger()
+    {
+        // Called through msgs when a ladder detects a trigger exit by the player
+        ladderCount -= 1;
     }
 }
