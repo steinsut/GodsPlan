@@ -17,6 +17,7 @@ public class level1wcs : MonoBehaviour
             {
                 Debug.Log("Win yay wunderbar heil hitler");
                 deadGuy.gameObject.SendMessage("levelWonStopMoving");
+                letGo();
             }
         }
     }

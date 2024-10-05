@@ -326,7 +326,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7161195583296643130, guid: bcde3a41d8a157d478902be38a7ee1c8, type: 3}
       propertyPath: orthographic size
-      value: 0.75
+      value: 0.96
       objectReference: {fileID: 0}
     - target: {fileID: 8248928905498832548, guid: bcde3a41d8a157d478902be38a7ee1c8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4296,6 +4296,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deadGuy: {fileID: 1852359954}
+  levelParent: {fileID: 856050800}
 --- !u!212 &951915656
 SpriteRenderer:
   m_ObjectHideFlags: 0
