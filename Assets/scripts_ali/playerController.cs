@@ -18,6 +18,7 @@ public class playerController : MonoBehaviour
 
     float horizontalMovement = 0.0f;
     float verticalMovement = 0.0f;
+    float jumpForce = 0.0f;
 
     private const float jumpThreshold = 0.0001f;
 
@@ -73,10 +74,10 @@ public class playerController : MonoBehaviour
                 {
                     pressTime += Time.deltaTime;
                 }
-                verticalMovement = jumpInput * jumpStrengthModifier;
+                jumpForce = jumpInput * jumpStrengthModifier;
             } else {
                 pressTime = 0.0f;
-                verticalMovement = 0.0f;
+                jumpForce = 0.0f;
             }
         }
 
@@ -106,7 +107,9 @@ public class playerController : MonoBehaviour
         {
             return;
         }
+
         rigidbody.linearVelocityX = horizontalMovement;
+
         if (ladderCount > 0)
         {
             rigidbody.linearVelocityY = verticalMovement;
@@ -119,7 +122,7 @@ public class playerController : MonoBehaviour
                     pressTime = 0;
                 }
                 onAir = false;
-                rigidbody.AddForceY(verticalMovement);
+                rigidbody.AddForceY(jumpForce);
             }
             else
             {

@@ -17,6 +17,12 @@ public class movingPlatformScript : MonoBehaviour
 
     private float eRange = 0.1f;
 
+    [SerializeField]
+    private bool repeat = true;
+
+    [SerializeField]
+    private ToggleController toggleController = null;
+
     void switchDirections() {
         direction = -1 * direction;
     }
@@ -35,6 +41,14 @@ public class movingPlatformScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!repeat && Vector3.Distance(transform.position, pointB) < eRange)
+        {
+            return;
+        }
+        if (toggleController != null)
+        {
+            move = toggleController.toggled;
+        } 
         if (move)
         {
             Vector3 goal;

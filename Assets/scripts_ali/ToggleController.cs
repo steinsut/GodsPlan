@@ -6,7 +6,7 @@ public class ToggleController : MonoBehaviour
     [SerializeField]
     private Sprite s_on, s_off;
 
-    public bool enabled = false;
+    public bool toggled = false;
 
     private SpriteRenderer spriteRenderer;
 
@@ -40,11 +40,11 @@ public class ToggleController : MonoBehaviour
         {
             if (Input.GetButtonDown("Interract"))
             {
-                enabled = !enabled;
+                toggled = !toggled;
             }
         }
 
-        if (enabled)
+        if (toggled)
         {
             if (spriteRenderer.sprite != s_on)
             {
