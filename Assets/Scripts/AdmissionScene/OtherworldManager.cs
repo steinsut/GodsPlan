@@ -8,6 +8,8 @@ public class OtherworldManager : MonoBehaviour
 {
     [Header("Objects")]
     [SerializeField]
+    private LevelManager levelManager;
+    [SerializeField]
     private OtherworlderQueue otherworlderQueue;
     [SerializeField]
     private KarmaScale karmaScale;
@@ -26,6 +28,9 @@ public class OtherworldManager : MonoBehaviour
 
     [SerializeField]
     private TextMeshProUGUI contractText;
+
+    [SerializeField]
+    private TextMeshProUGUI dayText;
 
     [Header("Game Values")]
     [SerializeField]
@@ -95,7 +100,11 @@ public class OtherworldManager : MonoBehaviour
         otherworlderQueue.PrepareQueue(otherworlderCount, currentKarma);
 
         currentKarma += (int)(Mathf.Sign(currentKarma) * ((Random.value > 0.2 ? 1 : 0) * 2))
-                    + (int)(2 * Random.value);
+                    + (int)(Math.Sign(currentKarma) * 2 * Random.value);
+        karmaScale.Tip(currentKarma);
+
+        dayText.text = "Day " + currentDay;
+        
         startedDay = true;
     }
 
@@ -118,12 +127,16 @@ public class OtherworldManager : MonoBehaviour
         }
     }
 
-    public void OnSaveClick() {
+    public void MinigameFinished(bool succeeded) {
         currentKarma += otherworlderQueue.GetNextHumanData().GetTotalKarma();
         currentKarma = Math.Clamp(currentKarma, -10, 10);
         karmaScale.Tip(currentKarma);
 
         otherworlderQueue.ProgressQueue(true);
+    }
+
+    public void OnSaveClick() {
+        levelManager.GoToMinigame(otherworlderQueue.GetNextHumanData());
     }
 
     public void OnDenyClick() {
