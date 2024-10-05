@@ -18,6 +18,8 @@ public class DeadGuyController : MonoBehaviour
     bool dead = false;
     bool canMove = true;
 
+    public bool isDead() {  return dead; }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("deathReason"))

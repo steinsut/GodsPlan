@@ -5,6 +5,9 @@ public class level1wcs : MonoBehaviour
 {
     [SerializeField]
     Transform deadGuy;
+
+    [SerializeField]
+    GameObject levelParent;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("physbox"))
@@ -16,6 +19,11 @@ public class level1wcs : MonoBehaviour
                 deadGuy.gameObject.SendMessage("levelWonStopMoving");
             }
         }
+    }
+
+    void letGo()
+    {
+        GameObject.FindGameObjectWithTag("levelManager").GetComponent<LevelManager>().ReturnFromMinigame(levelParent, deadGuy.GetComponent<DeadGuyController>().isDead());
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
