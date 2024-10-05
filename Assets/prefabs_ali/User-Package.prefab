@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.90188676, g: 0.39308646, b: 0.80202043, a: 0.039215688}
+  m_Color: {r: 0.90188676, g: 0.39308646, b: 0.80202043, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -186,7 +186,7 @@ MonoBehaviour:
     Enabled: 0
     m_Value: 0
   OutputChannel: 1
-  StandbyUpdate: 2
+  StandbyUpdate: 1
   m_StreamingVersion: 20241001
   m_LegacyPriority: 0
   Target:
@@ -310,7 +310,7 @@ Transform:
   m_GameObject: {fileID: 3284384884310683686}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.000000014901161, y: -0.28700003, z: 0}
+  m_LocalPosition: {x: 2.1956, y: -0.25600004, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -452,7 +452,7 @@ MonoBehaviour:
   IgnoreTimeScale: 0
   WorldUpOverride: {fileID: 0}
   ChannelMask: -1
-  UpdateMethod: 2
+  UpdateMethod: 0
   BlendUpdateMethod: 1
   LensModeOverride:
     Enabled: 0
@@ -775,12 +775,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 2216962988415778236, guid: d74f570458bd9da4e9222ef2b8bca3a7, type: 3}
+  m_Sprite: {fileID: -1826952330918056546, guid: 08d9b3f2c57bb75409b78f8b9c0fef2d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.22, y: 0.24}
+  m_Size: {x: 0.24, y: 0.24}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
