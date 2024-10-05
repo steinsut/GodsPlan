@@ -46,9 +46,24 @@ public class HumanData {
     public int bottomClothingId = -1;
     public Color bottomClothingColor = Color.white;
 
-
     //Memories
     public int childhoodMemory = -1;
     public int adulthoodMemory = -1;
     public int geezerhoodMemory = -1;
+
+    public int GetTotalKarma() {
+        Globals globals = Globals.Instance;
+
+        int totalKarma = globals.ChildhoodMemories[childhoodMemory].karma;
+        if (age > AgeGroup.CHILD)
+        {
+            totalKarma += globals.AdulthoodMemories[adulthoodMemory].karma;
+        }
+        if (age > AgeGroup.ADULT)
+        {
+            totalKarma += globals.GeezerhoodMemories[geezerhoodMemory].karma;
+        }
+
+        return totalKarma;
+    }
 }

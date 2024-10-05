@@ -14,4 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   list:
   - text: GM1
-    karma: 31
+    karma: 0
+  - text: GM2
+    karma: 0
+  - text: GM3
+    karma: 0
+  - text: GM4
+    karma: 0
+  - text: GM5
+    karma: 0
+  - text: GM6
+    karma: 0

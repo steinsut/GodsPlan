@@ -14,4 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   list:
   - text: AM1
-    karma: 31
+    karma: 0
+  - text: AM2
+    karma: 0
+  - text: AM3
+    karma: 0
+  - text: AM4
+    karma: 0
+  - text: AM5
+    karma: 0
+  - text: AM6
+    karma: 0

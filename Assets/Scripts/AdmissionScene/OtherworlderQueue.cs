@@ -55,14 +55,7 @@ public class OtherworlderQueue : MonoBehaviour
         
         for(int i = 0; i < count; i++) {
             HumanData data = generation1[i];
-            int totalKarma = globals.ChildhoodMemories[data.childhoodMemory].karma;
-            if (data.age > AgeGroup.CHILD) {
-                totalKarma += globals.AdulthoodMemories[data.adulthoodMemory].karma;
-            }
-            if (data.age > AgeGroup.ADULT)
-            {
-                totalKarma += globals.GeezerhoodMemories[data.geezerhoodMemory].karma;
-            }
+            int totalKarma = data.GetTotalKarma();
 
             if(influenceKarma < 0 && totalKarma > 0 && Random.value >= influenceKarma * 0.05) { allData.Add(data); }
             else if(influenceKarma > 0 && totalKarma < 0 && Random.value >= influenceKarma * 0.05) { allData.Add(data); }
@@ -133,18 +126,12 @@ public class OtherworlderQueue : MonoBehaviour
                 if(!frontDisappeared) {
                     remainingOtherworlders--;
                     Otherworlder otherworlder = otherworlders[0];
-                    Debug.Log(otherworlders.Count);
                     otherworlders.RemoveAt(0);
-                    Debug.Log(otherworlders.Count);
-                    Debug.Log(otherworlder.GetHumanData().firstName + otherworlder.GetHumanData().surname);
-                    Destroy(otherworlder);
+                    Destroy(otherworlder.gameObject);
 
                     frontDisappeared = true;
                 }
                 if (remainingOtherworlders > 0 && otherworlders[0].transform.position.x < doorstop.position.x) {
-                    Debug.Log("ji");
-                    Debug.Log(remainingOtherworlders);
-                    Debug.Log(otherworlders.Count);
                     for(int i = 0; i < remainingOtherworlders; i++) {
                         float movement = queueMoveSpeed * Time.deltaTime;
                         otherworlders[i].transform.Translate(movement, 0f, 0f);
@@ -159,7 +146,6 @@ public class OtherworlderQueue : MonoBehaviour
                     }
                 }
                 else {
-                    Debug.Log("wo");
                     progressing = false;
                     savedFront = false;
                     frontDisappeared = false;
