@@ -38,6 +38,10 @@ public class Otherworlder : MonoBehaviour
         transform.localPosition = new Vector3(transform.localPosition.x, startingY + yOffset, transform.localPosition.z);
     }
 
+    public HumanData GetHumanData() {
+        return humanData;
+    }
+
     public void SetHumanData(HumanData data) {
         humanData = data;
 

@@ -22,9 +22,9 @@ public class HumanData {
         //human.bottomClothingId = Random.Range(0, Globals.Instance.BottomClothings.Count);
         human.bottomClothingColor = Random.ColorHSV();
 
-        //human.childhoodMemory = Random.Range(0, Globals.Instance.ChildhoodMemories.values.Count);
-        //human.adulthoodMemory = Random.Range(0, Globals.Instance.AdulthoodMemories.values.Count);
-        //human.geezerhoodMemory = Random.Range(0, Globals.Instance.GeezerhoodMemories.values.Count);
+        human.childhoodMemory = Random.Range(0, Globals.Instance.ChildhoodMemories.Count);
+        human.adulthoodMemory = Random.Range(0, Globals.Instance.AdulthoodMemories.Count);
+        human.geezerhoodMemory = Random.Range(0, Globals.Instance.GeezerhoodMemories.Count);
 
         return human;
     }
