@@ -62,7 +62,7 @@ public class playerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("hazard"))
+        if (collision.gameObject.CompareTag("hazard") || collision.gameObject.CompareTag("deathReason"))
         {
             if (collision.contactCount > 0)
             {

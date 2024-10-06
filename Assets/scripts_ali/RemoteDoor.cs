@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class RemoteDoor : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class RemoteDoor : MonoBehaviour
     public Sprite closed, open;
 
     private SpriteRenderer spriteRenderer;
+    private ShadowCaster2D shadowCaster;
 
     private BoxCollider2D collider;
 
@@ -21,6 +23,7 @@ public class RemoteDoor : MonoBehaviour
         }
 
         spriteRenderer = GetComponent<SpriteRenderer>();
+        shadowCaster = GetComponent<ShadowCaster2D>();
         collider = GetComponent<BoxCollider2D>();
     }
 
@@ -33,6 +36,7 @@ public class RemoteDoor : MonoBehaviour
             {
                 spriteRenderer.sprite = open;
                 collider.enabled = false;
+                shadowCaster.enabled = false;
             }
         } else
         {
@@ -40,6 +44,7 @@ public class RemoteDoor : MonoBehaviour
             {
                 spriteRenderer.sprite = closed;
                 collider.enabled = true;
+                shadowCaster.enabled = true;
             }
         }
     }

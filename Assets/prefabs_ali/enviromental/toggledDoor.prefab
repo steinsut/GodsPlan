@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2162768425396871687}
   - component: {fileID: 7027701020262578130}
   - component: {fileID: 8644074410500540675}
+  - component: {fileID: 950912518752117636}
   m_Layer: 0
   m_Name: toggledDoor
   m_TagString: Untagged
@@ -29,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.407, y: 0.189, z: 0}
-  m_LocalScale: {x: 1, y: 1.5, z: 1}
+  m_LocalScale: {x: 1, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -47,8 +48,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toggleController: {fileID: 0}
-  closed: {fileID: -4136700708010962521, guid: 5c1f052c6f40e3e4ea0c589aa8392d70, type: 3}
-  open: {fileID: 7663188669112906855, guid: e76de992ee6e19448996859cb92c2bce, type: 3}
+  closed: {fileID: 1626375898, guid: 6008e568288453b439d3256e618f6d81, type: 3}
+  open: {fileID: -82967272, guid: 6008e568288453b439d3256e618f6d81, type: 3}
 --- !u!61 &7027701020262578130
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -88,12 +89,12 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 0.18, y: 0.18}
-    newSize: {x: 0.07, y: 0.18}
+    newSize: {x: 0.18, y: 0.18}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.059099525, y: 0.19700599}
+  m_Size: {x: 0.059099525, y: 0.18}
   m_EdgeRadius: 0
 --- !u!212 &8644074410500540675
 SpriteRenderer:
@@ -139,14 +140,67 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -4136700708010962521, guid: 5c1f052c6f40e3e4ea0c589aa8392d70, type: 3}
+  m_Sprite: {fileID: 1626375898, guid: 6008e568288453b439d3256e618f6d81, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.07, y: 0.18}
+  m_Size: {x: 0.18, y: 0.18}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
+--- !u!114 &950912518752117636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8698235359220783004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_Priority: 0
+  m_ComponentVersion: 5
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_AlphaCutoff: 0
+  m_ApplyToSortingLayers: 00000000
+  m_ShapePath:
+  - {x: -0.09000015, y: -0.09000003, z: 0}
+  - {x: -0.09000015, y: 0.09000003, z: 0}
+  - {x: 0.09000015, y: 0.09000003, z: 0}
+  - {x: 0.09000015, y: -0.09000003, z: 0}
+  m_ShapePathHash: 0
+  m_InstanceId: 0
+  m_ShadowShape2DComponent: {fileID: 7027701020262578130}
+  m_ShadowShape2DProvider:
+    rid: 8222665948889874795
+  m_ShadowCastingSource: 2
+  m_ShadowMesh:
+    m_Mesh: {fileID: 0}
+    m_LocalBounds:
+      m_Center: {x: -0.06073761, y: 0, z: 0}
+      m_Extent: {x: 0.029548645, y: 0.08999634, z: 0}
+    m_EdgeProcessing: 1
+    m_TrimEdge: 0
+    m_FlipX: 0
+    m_FlipY: 0
+    m_InitialTrim: 0
+  m_CastingOption: 1
+  m_PreviousTrimEdge: 0
+  m_PreviousEdgeProcessing: 1
+  m_PreviousShadowCastingSource: 2
+  m_PreviousShadowShape2DSource: {fileID: 7027701020262578130}
+  references:
+    version: 2
+    RefIds:
+    - rid: 8222665948889874795
+      type: {class: ShadowShape2DProvider_Collider2D, ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.2D.Runtime}
+      data: 
