@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dad8a041ff0746c4397c9060962339f9, type: 3}
+  m_Name: Female Sprites
+  m_EditorClassIdentifier: 
+  child:
+    _ghostHairs:
+    - {fileID: 1523220624630799016, guid: 11415d0961d192f4cbf052c893a0c639, type: 3}
+    _portraitHairs:
+    - {fileID: 4149677648309312025, guid: 38e7178099a3b994497f728ab3a42847, type: 3}
+    _portraitHeads:
+    - {fileID: 7403515436065940476, guid: 321328856c01c9d4cae3d1ad9c78142d, type: 3}
+  adult:
+    _ghostHairs:
+    - {fileID: 2669693128024546348, guid: 11415d0961d192f4cbf052c893a0c639, type: 3}
+    - {fileID: 1415424430384841348, guid: 11415d0961d192f4cbf052c893a0c639, type: 3}
+    - {fileID: 1211700732144574700, guid: 11415d0961d192f4cbf052c893a0c639, type: 3}
+    - {fileID: 8125049016962921162, guid: 11415d0961d192f4cbf052c893a0c639, type: 3}
+    _portraitHairs:
+    - {fileID: -3566166613963310228, guid: 38e7178099a3b994497f728ab3a42847, type: 3}
+    - {fileID: -760141227490907042, guid: 38e7178099a3b994497f728ab3a42847, type: 3}
+    - {fileID: 4416770330659884146, guid: 38e7178099a3b994497f728ab3a42847, type: 3}
+    - {fileID: -7733133505963108692, guid: 38e7178099a3b994497f728ab3a42847, type: 3}
+    _portraitHeads:
+    - {fileID: -1885019965917455452, guid: 321328856c01c9d4cae3d1ad9c78142d, type: 3}
+    - {fileID: 7580166845600601822, guid: 321328856c01c9d4cae3d1ad9c78142d, type: 3}
+    - {fileID: -6535058743674230076, guid: 321328856c01c9d4cae3d1ad9c78142d, type: 3}
+  geezer:
+    _ghostHairs:
+    - {fileID: 2669693128024546348, guid: 11415d0961d192f4cbf052c893a0c639, type: 3}
+    - {fileID: 1415424430384841348, guid: 11415d0961d192f4cbf052c893a0c639, type: 3}
+    - {fileID: 1211700732144574700, guid: 11415d0961d192f4cbf052c893a0c639, type: 3}
+    - {fileID: 8125049016962921162, guid: 11415d0961d192f4cbf052c893a0c639, type: 3}
+    _portraitHairs:
+    - {fileID: -3566166613963310228, guid: 38e7178099a3b994497f728ab3a42847, type: 3}
+    - {fileID: -760141227490907042, guid: 38e7178099a3b994497f728ab3a42847, type: 3}
+    - {fileID: 4416770330659884146, guid: 38e7178099a3b994497f728ab3a42847, type: 3}
+    - {fileID: -7733133505963108692, guid: 38e7178099a3b994497f728ab3a42847, type: 3}
+    _portraitHeads:
+    - {fileID: 4639019123647976527, guid: 321328856c01c9d4cae3d1ad9c78142d, type: 3}

@@ -20,11 +20,9 @@ public class OtherworldManager : MonoBehaviour
     private TextMeshProUGUI contractName;
 
     [SerializeField]
-    private Image portraitBody;
+    private Image portraitHead;
     [SerializeField]
     private Image portraitHair;
-    [SerializeField]
-    private Image portraitTopClothing;
 
     [SerializeField]
     private TypewritingText contractText;
@@ -71,21 +69,34 @@ public class OtherworldManager : MonoBehaviour
         else {
             if(!preparedContract)
             {
-                Globals global = Globals.Instance;
+                Globals globals = Globals.Instance;
                 HumanData data = otherworlderQueue.GetNextHumanData();
                 contractName.text = data.firstName + " " + data.surname;
 
-                portraitBody.color = data.skinColor;
-                portraitHair.color = data.hairColor;
-                portraitTopClothing.color = data.topClothingColor;
+                HumanSprites sprites;
+                if (data.sex == Sex.FEMALE) {
+                    sprites = globals.FemaleSprites;
+                }
+                else {
+                    sprites = globals.MaleSprites;
+                }
+                HumanSprites.Collection collection = sprites.GetAppropriateCollection(data.age);
+                //portraitHair.color = data.hairColor;
+                portraitHair.enabled = true;
+                portraitHair.sprite = collection.PortraitHairs[data.hairId];
+                portraitHead.sprite = collection.PortraitHeads[data.headId];
+                if (portraitHair.sprite == null) { 
+                    portraitHair.enabled = false;
+                }
+
 
                 string memoryText = "";
-                memoryText += "When I was a child, " + global.ChildhoodMemories[data.childhoodMemory].text;
+                memoryText += "When I was a child, " + globals.ChildhoodMemories[data.childhoodMemory].text;
                 if(data.age > AgeGroup.CHILD) {
-                    memoryText += " At my adulthood, " + global.AdulthoodMemories[data.adulthoodMemory].text;
+                    memoryText += " At my adulthood, " + globals.AdulthoodMemories[data.adulthoodMemory].text;
                 }
                 if(data.age > AgeGroup.ADULT) {
-                    memoryText += " After becoming an old man, " + global.GeezerhoodMemories[data.adulthoodMemory].text;
+                    memoryText += " After becoming an old man, " + globals.GeezerhoodMemories[data.adulthoodMemory].text;
                 }
                 contractText.SetText(memoryText);
                 contractText.StartTyping();
@@ -135,11 +146,12 @@ public class OtherworldManager : MonoBehaviour
     }
 
     public void MinigameFinished(bool succeeded) {
-        currentKarma += otherworlderQueue.GetNextHumanData().GetTotalKarma();
-        currentKarma = Math.Clamp(currentKarma, -10, 10);
-        karmaScale.Tip(currentKarma);
-
-        otherworlderQueue.ProgressQueue(true);
+        if (succeeded) {
+            currentKarma += otherworlderQueue.GetNextHumanData().GetTotalKarma();
+            currentKarma = Math.Clamp(currentKarma, -10, 10);
+            karmaScale.Tip(currentKarma);
+        }
+        otherworlderQueue.ProgressQueue(succeeded);
     }
 
     public void OnSaveClick() {

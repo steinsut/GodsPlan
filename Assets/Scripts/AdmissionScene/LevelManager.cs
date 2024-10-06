@@ -45,7 +45,6 @@ public class LevelManager : MonoBehaviour
     }
 
     public void ReturnFromMinigame(GameObject minigameSceneParent, bool minigameWon) {
-
         Destroy(minigameSceneParent);
 
         SceneManager.MoveGameObjectToScene(previousSceneParent.gameObject, SceneManager.GetActiveScene());
