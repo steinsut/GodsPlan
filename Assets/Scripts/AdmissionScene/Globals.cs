@@ -11,31 +11,20 @@ public class Globals : MonoBehaviour
     private MemoryList _childhoodMemories;
     private MemoryList _adulthoodMemories;
     private MemoryList _geezerhoodMemories;
-    private Sprite[] _hairs;
-    private Sprite[] _topClothings;
-    private Sprite[] _bottomClothings;
+    private HumanSprites _femaleSprites;
+    private HumanSprites _maleSprites;
 
     public ReadOnlyCollection<string> Names {
         get { return _names.values; }
     }
-    public ReadOnlyCollection<string> Surnames
-    {
+    public ReadOnlyCollection<string> Surnames {
         get { return _surnames.values; }
     }
-    public ReadOnlyCollection<Sprite> Hairs {
-        get {
-            return Array.AsReadOnly(_hairs);
-        }
+    public HumanSprites  FemaleSprites {
+        get { return _femaleSprites; }
     }
-    public ReadOnlyCollection<Sprite> TopClothings {
-        get {
-            return Array.AsReadOnly(_topClothings);
-        }
-    }
-    public ReadOnlyCollection<Sprite> BottomClothings {
-        get {
-            return Array.AsReadOnly(_bottomClothings);
-        }
+    public HumanSprites MaleSprites {
+        get { return _maleSprites; }
     }
     public ReadOnlyCollection<Memory> ChildhoodMemories {
         get { return _childhoodMemories.values; }
@@ -60,6 +49,9 @@ public class Globals : MonoBehaviour
     private void Awake() {
         _names = Resources.Load<StringList>("Default/First Names");
         _surnames = Resources.Load<StringList>("Default/Last Names");
+
+        _femaleSprites = Resources.Load<HumanSprites>("Default/Female Sprites");
+        _maleSprites = Resources.Load<HumanSprites>("Default/Hate Speech");
 
         _childhoodMemories = Resources.Load<MemoryList>("Default/Childhood Memories");
         _adulthoodMemories = Resources.Load<MemoryList>("Default/Adulthood Memories");

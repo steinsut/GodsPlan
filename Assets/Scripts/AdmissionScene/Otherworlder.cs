@@ -11,20 +11,14 @@ public class Otherworlder : MonoBehaviour
     private HumanData humanData;
 
     [SerializeField]
-    private SpriteRenderer bodySprite;
-
-    [SerializeField]
     private SpriteRenderer hairSprite;
-
-    [SerializeField]
-    private SpriteRenderer topClothingSprite;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start() {
         startingY = transform.localPosition.y;
-        offset = Random.value * 4;
-        flySpeed = Random.value * 2;
-        flyHeight = 0.3f + Random.value * 0.28f;
+        offset = Random.value;
+        flySpeed = Random.value * 0.64f;
+        flyHeight = 0.083f + Random.value * 0.0656f;
     }
 
     // Update is called once per frame
@@ -32,7 +26,7 @@ public class Otherworlder : MonoBehaviour
         float yOffset = Mathf.Sin(Time.time * flySpeed + offset) * flyHeight;
 
         if (yOffset < 0) {
-            yOffset = yOffset * (flyHeight / 2); 
+            yOffset = yOffset * (flyHeight / 1.3f); 
         }
         
         transform.localPosition = new Vector3(transform.localPosition.x, startingY + yOffset, transform.localPosition.z);
@@ -45,9 +39,13 @@ public class Otherworlder : MonoBehaviour
     public void SetHumanData(HumanData data) {
         humanData = data;
 
-        bodySprite.color = data.skinColor;
-        hairSprite.color = data.hairColor;
-        topClothingSprite.color = data.topClothingColor;
+        HumanSprites sprites = data.sex == Sex.FEMALE ? Globals.Instance.FemaleSprites 
+            : Globals.Instance.MaleSprites;
+
+        HumanSprites.Collection collection = sprites.GetAppropriateCollection(data.age);
+
+        hairSprite.sprite = collection.GhostHeads[humanData.hairId];
+        //hairSprite.color = data.hairColor;
     }
 
     public void TurnToPlayer() {
