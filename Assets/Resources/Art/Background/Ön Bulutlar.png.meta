@@ -1,22 +1,13 @@
 fileFormatVersion: 2
-guid: 38e7178099a3b994497f728ab3a42847
+guid: 2046206da1df9434c835ed66a9902bc7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7733133505963108692
-    second: F_PortraitHair_0
+      213: 43529115385486924
+    second: "\xD6n Bulutlar_0"
   - first:
-      213: 4149677648309312025
-    second: F_PortraitHair_1
-  - first:
-      213: -3566166613963310228
-    second: F_PortraitHair_2
-  - first:
-      213: -760141227490907042
-    second: F_PortraitHair_3
-  - first:
-      213: 4416770330659884146
-    second: F_PortraitHair_4
+      213: 4928996607806448392
+    second: "\xD6n Bulutlar_1"
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -112,13 +103,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: F_PortraitHair_0
+      name: "\xD6n Bulutlar_0"
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 62
-        height: 64
+        width: 240
+        height: 180
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -127,20 +118,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ca6d5685c046ea490800000000000000
-      internalID: -7733133505963108692
+      spriteID: c4e50f3ff75aa9000800000000000000
+      internalID: 43529115385486924
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: F_PortraitHair_1
+      name: "\xD6n Bulutlar_1"
       rect:
         serializedVersion: 2
-        x: 64
-        y: 0
-        width: 62
-        height: 64
+        x: 162
+        y: 78
+        width: 29
+        height: 10
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -149,74 +140,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 91adadfc5dd969930800000000000000
-      internalID: 4149677648309312025
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: F_PortraitHair_2
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c6bfbd4eb5e628ec0800000000000000
-      internalID: -3566166613963310228
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: F_PortraitHair_3
-      rect:
-        serializedVersion: 2
-        x: 196
-        y: 0
-        width: 58
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e5c664cb49f6375f0800000000000000
-      internalID: -760141227490907042
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: F_PortraitHair_4
-      rect:
-        serializedVersion: 2
-        x: 260
-        y: 1
-        width: 60
-        height: 62
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 27c8775f6358b4d30800000000000000
-      internalID: 4416770330659884146
+      spriteID: 803a863cc40576440800000000000000
+      internalID: 4928996607806448392
       vertices: []
       indices: 
       edges: []
@@ -225,7 +150,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 47e48f650c86109418a696c1b71613c9
+    spriteID: 5ecca5f2e5c21824682c05c749ff4b14
     internalID: 0
     vertices: []
     indices: 
@@ -235,11 +160,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      F_PortraitHair_0: -7733133505963108692
-      F_PortraitHair_1: 4149677648309312025
-      F_PortraitHair_2: -3566166613963310228
-      F_PortraitHair_3: -760141227490907042
-      F_PortraitHair_4: 4416770330659884146
+      "\xD6n Bulutlar_0": 43529115385486924
+      "\xD6n Bulutlar_1": 4928996607806448392
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -14,7 +14,10 @@ public class HumanData {
         human.age = (AgeGroup)Random.Range(0, 3);
         human.sex = (Sex)Random.Range(0, 2);
 
-        human.hairColor = Random.ColorHSV(0f, 1f, 0f, 1f);
+        human.hairColor = Random.ColorHSV(0f, 1f, 0.3f, 0.9f, 0.2f, 1f);
+        if(Random.value > 0.5) {
+            human.skinColor = Random.ColorHSV(0f, 1f, 0.3f, 0.6f, 0.7f, 1f);
+        }
 
         HumanSprites sprites;
         if(human.sex == Sex.FEMALE) {
@@ -28,11 +31,6 @@ public class HumanData {
 
         human.hairId = Random.Range(0, collection.PortraitHairs.Count);
         human.headId = Random.Range(0, collection.PortraitHeads.Count);
-        
-        //human.topClothingId = Random.Range(0, Globals.Instance.TopClothings.Count);
-        human.topClothingColor = Random.ColorHSV();
-        //human.bottomClothingId = Random.Range(0, Globals.Instance.BottomClothings.Count);
-        human.bottomClothingColor = Random.ColorHSV();
 
         human.childhoodMemory = Random.Range(0, globals.ChildhoodMemories.Count);
         human.adulthoodMemory = Random.Range(0, globals.AdulthoodMemories.Count);
@@ -52,12 +50,7 @@ public class HumanData {
     public Color hairColor = Color.white;
 
     public int headId = -1;
-
-    public int topClothingId = -1;
-    public Color topClothingColor = Color.white;
-
-    public int bottomClothingId = -1;
-    public Color bottomClothingColor = Color.white;
+    public Color skinColor = Color.white;
 
     //Memories
     public int childhoodMemory = -1;

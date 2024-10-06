@@ -20,9 +20,16 @@ public class OtherworldManager : MonoBehaviour
     private TextMeshProUGUI contractName;
 
     [SerializeField]
+    private Image portraitHair;
+    [SerializeField]
     private Image portraitHead;
     [SerializeField]
-    private Image portraitHair;
+    private Image portraitBody;
+
+    [SerializeField]
+    private Sprite portraitBodyChild;
+    [SerializeField]
+    private Sprite portraitBodyAdult;
 
     [SerializeField]
     private TypewritingText contractText;
@@ -81,12 +88,19 @@ public class OtherworldManager : MonoBehaviour
                     sprites = globals.MaleSprites;
                 }
                 HumanSprites.Collection collection = sprites.GetAppropriateCollection(data.age);
-                //portraitHair.color = data.hairColor;
                 portraitHair.enabled = true;
                 portraitHair.sprite = collection.PortraitHairs[data.hairId];
                 portraitHead.sprite = collection.PortraitHeads[data.headId];
+                portraitHair.color = data.hairColor;
+                portraitHead.color = data.skinColor;
                 if (portraitHair.sprite == null) { 
                     portraitHair.enabled = false;
+                }
+                if(data.age == AgeGroup.CHILD) {
+                    portraitBody.sprite = portraitBodyChild;
+                }
+                else {
+                    portraitBody.sprite = portraitBodyAdult;
                 }
 
 

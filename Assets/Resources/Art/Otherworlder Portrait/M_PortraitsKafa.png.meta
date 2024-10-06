@@ -1,22 +1,22 @@
 fileFormatVersion: 2
-guid: 38e7178099a3b994497f728ab3a42847
+guid: 522b3a14b86b1d14495e2804cc61793a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7733133505963108692
-    second: F_PortraitHair_0
+      213: 627164868014394858
+    second: M_PortraitsKafa_0
   - first:
-      213: 4149677648309312025
-    second: F_PortraitHair_1
+      213: 8121005931588148359
+    second: M_PortraitsKafa_1
   - first:
-      213: -3566166613963310228
-    second: F_PortraitHair_2
+      213: 2429423725283021819
+    second: M_PortraitsKafa_2
   - first:
-      213: -760141227490907042
-    second: F_PortraitHair_3
+      213: 1072140186234095571
+    second: M_PortraitsKafa_3
   - first:
-      213: 4416770330659884146
-    second: F_PortraitHair_4
+      213: 8291747904733456713
+    second: M_PortraitsKafa_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -112,51 +112,51 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: F_PortraitHair_0
+      name: M_PortraitsKafa_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 62
+        width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ca6d5685c046ea490800000000000000
-      internalID: -7733133505963108692
+      spriteID: aed4a95ef1324b800800000000000000
+      internalID: 627164868014394858
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: F_PortraitHair_1
+      name: M_PortraitsKafa_1
       rect:
         serializedVersion: 2
         x: 64
         y: 0
-        width: 62
+        width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 91adadfc5dd969930800000000000000
-      internalID: 4149677648309312025
+      spriteID: 78cd62b2edb93b070800000000000000
+      internalID: 8121005931588148359
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: F_PortraitHair_2
+      name: M_PortraitsKafa_2
       rect:
         serializedVersion: 2
         x: 128
@@ -164,59 +164,59 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c6bfbd4eb5e628ec0800000000000000
-      internalID: -3566166613963310228
+      spriteID: bf3966aa10c07b120800000000000000
+      internalID: 2429423725283021819
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: F_PortraitHair_3
+      name: M_PortraitsKafa_3
       rect:
         serializedVersion: 2
-        x: 196
+        x: 192
         y: 0
-        width: 58
+        width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e5c664cb49f6375f0800000000000000
-      internalID: -760141227490907042
+      spriteID: 3d787e5a1d101ee00800000000000000
+      internalID: 1072140186234095571
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: F_PortraitHair_4
+      name: M_PortraitsKafa_4
       rect:
         serializedVersion: 2
-        x: 260
-        y: 1
-        width: 60
-        height: 62
+        x: 256
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 27c8775f6358b4d30800000000000000
-      internalID: 4416770330659884146
+      spriteID: 9492abca9c4321370800000000000000
+      internalID: 8291747904733456713
       vertices: []
       indices: 
       edges: []
@@ -225,7 +225,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 47e48f650c86109418a696c1b71613c9
+    spriteID: 64091cb2ad3b61f4ca0852ac0ac06ba8
     internalID: 0
     vertices: []
     indices: 
@@ -235,11 +235,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      F_PortraitHair_0: -7733133505963108692
-      F_PortraitHair_1: 4149677648309312025
-      F_PortraitHair_2: -3566166613963310228
-      F_PortraitHair_3: -760141227490907042
-      F_PortraitHair_4: 4416770330659884146
+      M_PortraitsKafa_0: 627164868014394858
+      M_PortraitsKafa_1: 8121005931588148359
+      M_PortraitsKafa_2: 2429423725283021819
+      M_PortraitsKafa_3: 1072140186234095571
+      M_PortraitsKafa_4: 8291747904733456713
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

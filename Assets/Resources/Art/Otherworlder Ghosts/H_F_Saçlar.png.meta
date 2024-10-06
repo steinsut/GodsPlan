@@ -1,22 +1,22 @@
 fileFormatVersion: 2
-guid: 38e7178099a3b994497f728ab3a42847
+guid: c228d10291a88784f89baba7690f5e18
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7733133505963108692
-    second: F_PortraitHair_0
+      213: 5634768566131121422
+    second: "H_F_Sa\xE7lar_0"
   - first:
-      213: 4149677648309312025
-    second: F_PortraitHair_1
+      213: -3681438921347004162
+    second: "H_F_Sa\xE7lar_1"
   - first:
-      213: -3566166613963310228
-    second: F_PortraitHair_2
+      213: 8055641669603851797
+    second: "H_F_Sa\xE7lar_2"
   - first:
-      213: -760141227490907042
-    second: F_PortraitHair_3
+      213: 685319552595679549
+    second: "H_F_Sa\xE7lar_3"
   - first:
-      213: 4416770330659884146
-    second: F_PortraitHair_4
+      213: -8291001049980071110
+    second: "H_F_Sa\xE7lar_4"
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -112,13 +112,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: F_PortraitHair_0
+      name: "H_F_Sa\xE7lar_0"
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 62
-        height: 64
+        width: 24
+        height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -127,20 +127,42 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ca6d5685c046ea490800000000000000
-      internalID: -7733133505963108692
+      spriteID: e0d58c71828b23e40800000000000000
+      internalID: 5634768566131121422
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: F_PortraitHair_1
+      name: "H_F_Sa\xE7lar_1"
       rect:
         serializedVersion: 2
-        x: 64
+        x: 25
+        y: 2
+        width: 23
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef880de5ec6e8ecc0800000000000000
+      internalID: -3681438921347004162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "H_F_Sa\xE7lar_2"
+      rect:
+        serializedVersion: 2
+        x: 48
         y: 0
-        width: 62
-        height: 64
+        width: 24
+        height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -149,20 +171,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 91adadfc5dd969930800000000000000
-      internalID: 4149677648309312025
+      spriteID: 51e729afa636bcf60800000000000000
+      internalID: 8055641669603851797
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: F_PortraitHair_2
+      name: "H_F_Sa\xE7lar_3"
       rect:
         serializedVersion: 2
-        x: 128
+        x: 72
         y: 0
-        width: 64
-        height: 64
+        width: 24
+        height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -171,20 +193,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c6bfbd4eb5e628ec0800000000000000
-      internalID: -3566166613963310228
+      spriteID: d39581a808eb28900800000000000000
+      internalID: 685319552595679549
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: F_PortraitHair_3
+      name: "H_F_Sa\xE7lar_4"
       rect:
         serializedVersion: 2
-        x: 196
+        x: 96
         y: 0
-        width: 58
-        height: 64
+        width: 24
+        height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -193,30 +215,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e5c664cb49f6375f0800000000000000
-      internalID: -760141227490907042
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: F_PortraitHair_4
-      rect:
-        serializedVersion: 2
-        x: 260
-        y: 1
-        width: 60
-        height: 62
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 27c8775f6358b4d30800000000000000
-      internalID: 4416770330659884146
+      spriteID: a331c8ff87270fc80800000000000000
+      internalID: -8291001049980071110
       vertices: []
       indices: 
       edges: []
@@ -225,7 +225,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 47e48f650c86109418a696c1b71613c9
+    spriteID: 57dc9300598a3cc45b701d2d7bc420ac
     internalID: 0
     vertices: []
     indices: 
@@ -235,11 +235,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      F_PortraitHair_0: -7733133505963108692
-      F_PortraitHair_1: 4149677648309312025
-      F_PortraitHair_2: -3566166613963310228
-      F_PortraitHair_3: -760141227490907042
-      F_PortraitHair_4: 4416770330659884146
+      "H_F_Sa\xE7lar_0": 5634768566131121422
+      "H_F_Sa\xE7lar_1": -3681438921347004162
+      "H_F_Sa\xE7lar_2": 8055641669603851797
+      "H_F_Sa\xE7lar_3": 685319552595679549
+      "H_F_Sa\xE7lar_4": -8291001049980071110
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
