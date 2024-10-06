@@ -184,7 +184,10 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      HareketliVucut_0: -4941369866953936623
+      HareketliVucut_1: -1276532537990761907
+      HareketliVucut_2: -883571667648411844
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

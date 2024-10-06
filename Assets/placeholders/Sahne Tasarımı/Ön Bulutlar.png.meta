@@ -159,7 +159,9 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      "\xD6n Bulutlar_0": 43529115385486924
+      "\xD6n Bulutlar_1": 4928996607806448392
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
