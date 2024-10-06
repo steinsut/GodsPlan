@@ -6,6 +6,11 @@ public class level2wcs : MonoBehaviour
     ToggleController electricityToggle;
     [SerializeField]
     GameObject levelParent;
+
+
+    [SerializeField]
+    endTransStateManager endSceneManager;
+
     [SerializeField]
     bool invertWinC = false;
 
@@ -15,13 +20,18 @@ public class level2wcs : MonoBehaviour
         
     }
 
+    bool notifiedEndSceneManager = false;
+
     private void LateUpdate()
     {
         if ((!electricityToggle.toggled && invertWinC) || (electricityToggle.toggled && !invertWinC))
         {
-            Debug.Log("WINWINWIN");
-            GameObject.FindGameObjectWithTag("levelManager").GetComponent<LevelManager>().ReturnFromMinigame(levelParent, true);
-
+            if (!notifiedEndSceneManager)
+            {
+                endSceneManager.setupReturn(true);
+                notifiedEndSceneManager = true;
+            }
+            //GameObject.FindGameObjectWithTag("levelManager").GetComponent<LevelManager>().ReturnFromMinigame(levelParent, true);
         }
     }
 

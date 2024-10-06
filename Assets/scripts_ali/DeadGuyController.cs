@@ -6,6 +6,9 @@ using UnityEngine;
 public class DeadGuyController : MonoBehaviour
 {
     [SerializeField]
+    private endTransStateManager EndStateManager;
+
+    [SerializeField]
     List<Vector3> positions = new List<Vector3>();
     [SerializeField]
     List<float> timeStamps = new List<float>();
@@ -38,7 +41,8 @@ public class DeadGuyController : MonoBehaviour
     private void die()
     {
         dead = true;
-        GameObject.FindGameObjectWithTag("levelManager").GetComponent<LevelManager>().ReturnFromMinigame(levelParent, false);
+        EndStateManager.setupReturn(false);
+        //GameObject.FindGameObjectWithTag("levelManager").GetComponent<LevelManager>().ReturnFromMinigame(levelParent, false);
     }
 
 

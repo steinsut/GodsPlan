@@ -3,6 +3,10 @@ using UnityEngine;
 
 public class playerController : MonoBehaviour
 {
+
+    [SerializeField]
+    private endTransStateManager EndStateManager;
+
     public float speed = 5.0f;
     public float jumpStrengthModifier = 1f;
     [SerializeField]
@@ -56,7 +60,8 @@ public class playerController : MonoBehaviour
     void stopControls()
     {
         controllable = false;
-        GameObject.FindGameObjectWithTag("levelManager").GetComponent<LevelManager>().ReturnFromMinigame(levelParent, false);
+        EndStateManager.setupReturn(false);
+        //GameObject.FindGameObjectWithTag("levelManager").GetComponent<LevelManager>().ReturnFromMinigame(levelParent, false);
 
     }
 

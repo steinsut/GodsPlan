@@ -4,49 +4,55 @@ using UnityEngine;
 public class endTransStateManager : MonoBehaviour
 {
     [SerializeField]
-    private GameObject childrenObject;
+    private Animation insert;
 
     [SerializeField]
-    private Animator animator;
-
-    [SerializeField]
-    private float waitTime;
-    
-    private IEnumerator EndTransitionCoroutine(bool success) {
-        yield return new WaitForSeconds(waitTime);
-
-        LevelManager instance = null;
-        //instance = LevelManager.Instance;
-        
-        instance.ReturnFromMinigame(gameObject, success);
-    }
-
-    private IEnumerator StartTransitionCoroutine() {
-
-        childrenObject.SetActive(true);
-        animator.Play("EndTransition");
-
-        yield return new WaitForSeconds(waitTime);
-
-        childrenObject.SetActive(false);
-    }
-
-    void EndMinigameTransition(bool success) {
-        childrenObject.SetActive(success);
-        animator.Play("DoTransiton");
-
-        StartCoroutine(EndTransitionCoroutine(success));
-    }
+    private GameObject sceneParent;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        insert.Rewind();
+        insert.Play("cloudsPass");
     }
+
+    void fadeOut()
+    {
+        insert.Play("cloudCome");
+        fading = true;
+    }
+    bool? succesState = null;
+    public void setupReturn(bool success)
+    {
+        succesState = success;
+        exited = true;
+    }
+
+    void exitScene()
+    {
+        if (succesState == null) {
+            succesState = false;
+        }
+        LevelManager.Instance.ReturnFromMinigame(sceneParent, (bool)succesState);
+    }
+    bool exited = false;
+    bool fading = false;
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (succesState == null)
+        {
+            return;
+        } else
+        {
+            if (!insert.isPlaying && exited && !fading)
+            {
+                fadeOut();
+            } else if (!insert.isPlaying && fading)
+            {
+                exitScene();
+            }
+        }
     }
 }

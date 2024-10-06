@@ -7,6 +7,9 @@ public class level1wcs : MonoBehaviour
     Transform deadGuy;
 
     [SerializeField]
+    endTransStateManager endSceneManager;
+
+    [SerializeField]
     GameObject levelParent;
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -24,7 +27,7 @@ public class level1wcs : MonoBehaviour
 
     void letGo()
     {
-        GameObject.FindGameObjectWithTag("levelManager").GetComponent<LevelManager>().ReturnFromMinigame(levelParent, !deadGuy.GetComponent<DeadGuyController>().isDead());
+        endSceneManager.setupReturn(!deadGuy.GetComponent<DeadGuyController>().isDead());
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
