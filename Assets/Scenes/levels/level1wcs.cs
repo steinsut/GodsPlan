@@ -24,7 +24,7 @@ public class level1wcs : MonoBehaviour
 
     void letGo()
     {
-        GameObject.FindGameObjectWithTag("levelManager").GetComponent<LevelManager>().ReturnFromMinigame(levelParent, deadGuy.GetComponent<DeadGuyController>().isDead());
+        GameObject.FindGameObjectWithTag("levelManager").GetComponent<LevelManager>().ReturnFromMinigame(levelParent, !deadGuy.GetComponent<DeadGuyController>().isDead());
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

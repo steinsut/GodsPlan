@@ -8,6 +8,12 @@ public class playerController : MonoBehaviour
     [SerializeField]
     private Rigidbody2D rigidbody;
 
+    [SerializeField]
+    private SpriteRenderer spriteRenderer;
+
+    [SerializeField]
+    private Animator spriteAnimationController;
+
     private BoxCollider2D footColider;
 
     void Start()
@@ -38,25 +44,49 @@ public class playerController : MonoBehaviour
     private float verticalSpeed = 1f;
     private int ladderCount = 0;
 
+    [SerializeField]
     private bool controllable = true;
+
+    [SerializeField]
+    private float deathForce = 4f;
+
+    [SerializeField]
+    private GameObject levelParent;
 
     void stopControls()
     {
         controllable = false;
+        GameObject.FindGameObjectWithTag("levelManager").GetComponent<LevelManager>().ReturnFromMinigame(levelParent, true);
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("hazard"))
         {
-            stopControls();
-            Console.WriteLine("you failed!");
+            if (collision.contactCount > 0)
+            {
+                if (controllable)
+                {
+                    ContactPoint2D contactPoint = collision.GetContact(0);
+                    rigidbody.AddForceAtPosition((new Vector2(transform.position.x, transform.position.y) - contactPoint.point ).normalized * deathForce * contactPoint.relativeVelocity ,contactPoint.point);
+                }
+                stopControls();
+
+            }
         }
     }
 
     // Update is called once per frame
     void Update()
     {
+        if ( Mathf.Abs(horizontalMovement) > 0.1f)
+        {
+            spriteRenderer.flipX = horizontalMovement < 0;
+        }
+        spriteAnimationController.SetBool("touchGrass", !onAir);
+        spriteAnimationController.SetBool("sleep", !controllable);
+
         if (!controllable)
         {
             return;
@@ -99,10 +129,13 @@ public class playerController : MonoBehaviour
 
         float horizontalInput = Input.GetAxis("Horizontal");
         horizontalMovement = horizontalInput * speed;
+
+        spriteAnimationController.SetFloat("abs_hi", Mathf.Abs(horizontalMovement));
     }
 
     private void FixedUpdate()
     {
+
         if (!controllable)
         {
             return;

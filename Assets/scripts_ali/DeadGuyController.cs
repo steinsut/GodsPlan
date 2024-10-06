@@ -12,6 +12,8 @@ public class DeadGuyController : MonoBehaviour
 
     private float speed = 1f;
 
+    private HumanData humandata;
+
     int lastPosition;
     float currentTime = 0;
 
@@ -32,7 +34,12 @@ public class DeadGuyController : MonoBehaviour
     {
         Debug.Log("YOU FAILED, YOU FAILURE, YOU USELESS PIECE OF SHIT!");
         dead = true;
+        GameObject.FindGameObjectWithTag("levelManager").GetComponent<LevelManager>().ReturnFromMinigame(levelParent, true);
     }
+
+
+    [SerializeField]
+    GameObject levelParent;
 
     public void levelWonStopMoving()
     {
