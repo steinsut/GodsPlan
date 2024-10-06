@@ -10,6 +10,9 @@ public class DeadGuyController : MonoBehaviour
     [SerializeField]
     List<float> timeStamps = new List<float>();
 
+    [SerializeField]
+    SpriteRenderer head, hair;
+
     private float speed = 1f;
 
     private HumanData humandata;
@@ -52,6 +55,25 @@ public class DeadGuyController : MonoBehaviour
         transform.position = positions[0];
     }
 
+    void loadDetails()
+    {
+        humandata = GameObject.FindGameObjectWithTag("levelManager").GetComponent<LevelManager>().GetLevelHuman();
+        hair.color = humandata.hairColor;
+        head.color = humandata.skinColor;
+
+        switch (humandata.sex)
+        {
+            case Sex.MALE:
+                if (humandata.age == AgeGroup.CHILD)
+                {
+                    head.sprite = Globals.Instance.MaleSprites.child.GhostHeads[humandata.headId];
+                }
+                break;
+            case Sex.FEMALE:
+                break;
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -60,7 +82,6 @@ public class DeadGuyController : MonoBehaviour
             currentTime += Time.deltaTime;
             if (currentTime  > timeStamps[lastPosition] )
             {
-                Console.Write("moveing");
                 Vector3 goal = positions[lastPosition + 1];
                 transform.Translate((goal - transform.position).normalized * speed * Time.deltaTime * Mathf.Clamp(Vector3.Distance(transform.position, goal), 0.3f, float.PositiveInfinity));
             }
