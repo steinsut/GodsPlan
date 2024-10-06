@@ -64,7 +64,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -102,7 +102,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -130,10 +130,10 @@ TextureImporter:
       name: "D\xFCnya Bulutu_0"
       rect:
         serializedVersion: 2
-        x: 82
-        y: 172
-        width: 13
-        height: 7
+        x: 0
+        y: 0
+        width: 240
+        height: 180
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -148,209 +148,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: "D\xFCnya Bulutu_1"
-      rect:
-        serializedVersion: 2
-        x: 67
-        y: 157
-        width: 8
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6e2c5b50309e233f0800000000000000
-      internalID: -922418774467558682
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "D\xFCnya Bulutu_2"
-      rect:
-        serializedVersion: 2
-        x: 74
-        y: 157
-        width: 15
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 68db62ef10cb578b0800000000000000
-      internalID: -5155007481710723706
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "D\xFCnya Bulutu_3"
-      rect:
-        serializedVersion: 2
-        x: 90
-        y: 152
-        width: 23
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: cf961645fa673fe60800000000000000
-      internalID: 7994864258919787004
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "D\xFCnya Bulutu_4"
-      rect:
-        serializedVersion: 2
-        x: 18
-        y: 128
-        width: 7
-        height: 10
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2fadc47196766b410800000000000000
-      internalID: 1492494027580037874
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "D\xFCnya Bulutu_5"
-      rect:
-        serializedVersion: 2
-        x: 23
-        y: 116
-        width: 38
-        height: 26
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 49932738e67343260800000000000000
-      internalID: 7076341862297123220
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "D\xFCnya Bulutu_6"
-      rect:
-        serializedVersion: 2
-        x: 25
-        y: 134
-        width: 30
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d11422769c6d14ac0800000000000000
-      internalID: -3872578044054847203
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "D\xFCnya Bulutu_7"
-      rect:
-        serializedVersion: 2
-        x: 114
-        y: 128
-        width: 7
-        height: 10
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 709c8e0c083cf5020800000000000000
-      internalID: 2332798089760917767
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "D\xFCnya Bulutu_8"
-      rect:
-        serializedVersion: 2
-        x: 35
-        y: 84
-        width: 15
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7043e64e46fe35ab0800000000000000
-      internalID: -5020405942979775481
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "D\xFCnya Bulutu_9"
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 96
-        width: 30
-        height: 30
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 67cc3aa928418fa60800000000000000
-      internalID: 7707933313417333878
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 03e95724e96a1df46ad4b4fb1f12d4b2
     internalID: 0
     vertices: []
     indices: 
@@ -359,7 +161,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      "D\xFCnya Bulutu_0": 4516921165094327141
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

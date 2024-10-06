@@ -68,7 +68,7 @@ public class OtherworlderQueue : MonoBehaviour
 
         for (int i = 0; i < count; i++)
         {
-            otherworlders.Add(Instantiate<Otherworlder>(otherworlderPrefab));
+            otherworlders.Add(Instantiate<Otherworlder>(otherworlderPrefab, transform));
             otherworlders[i].SetHumanData(allData[i]);
             otherworlders[i].transform.position = new Vector3(
                 doorstop.position.x - i * queueSpacing,

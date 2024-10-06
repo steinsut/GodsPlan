@@ -50,6 +50,9 @@ public class OtherworldManager : MonoBehaviour
     private bool startedDay = false;
     private bool preparedContract = false;
 
+    private bool onMinigame = false;
+    private bool moveToMinigame = false;
+
     private void Start() {
         PrepareNewDay();
     }
@@ -58,6 +61,7 @@ public class OtherworldManager : MonoBehaviour
     void Update()
     {
         if (!startedDay) {
+            Debug.Log("STARTED DAY");
             HideContract();
             return;
         }
@@ -68,10 +72,7 @@ public class OtherworldManager : MonoBehaviour
         }
 
         if(otherworlderQueue.IsProgressing()) {
-            if(preparedContract) {
-                HideContract();
-                preparedContract = false;
-            }
+            HideContract();
         }
         else {
             if(!preparedContract)
@@ -115,16 +116,19 @@ public class OtherworldManager : MonoBehaviour
                 contractText.SetText(memoryText);
                 contractText.StartTyping();
 
+                preparedContract = true;
                 contractAnimator.SetTrigger("Show");
 
-                preparedContract = true;
             }
         }
     }
 
     private void HideContract() {
-        contractAnimator.SetTrigger("Hide");
-        contractText.StopTyping();
+        if (preparedContract) { 
+            contractAnimator.SetTrigger("Hide");
+            contractText.StopTyping();
+            preparedContract = false;
+        }
     }
 
     private void PrepareNewDay() {
@@ -173,11 +177,6 @@ public class OtherworldManager : MonoBehaviour
     }
 
     public void OnDenyClick() {
-        if(otherworlderQueue.GetRemainingOtherworlders() == 1) {
-            otherworlderQueue.ProgressQueue(false);
-        } 
-        else {
-            otherworlderQueue.ProgressQueue(false);
-        }
+        otherworlderQueue.ProgressQueue(false);
     }
 }
