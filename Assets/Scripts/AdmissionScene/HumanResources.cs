@@ -1,10 +1,11 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Xml.Linq;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "HumanSprites", menuName = "Scriptable Objects/HumanSprites")]
 [System.Serializable]
-public class HumanSprites : ScriptableObject {
+public class HumanResources : ScriptableObject {
     [System.Serializable]
     public class Collection {
         [SerializeField]  
@@ -28,7 +29,9 @@ public class HumanSprites : ScriptableObject {
         public ReadOnlyCollection<Sprite> PortraitHeads {
             get { return _portraitHeads.AsReadOnly(); }
         }
+
     }
+
 
     [SerializeField]
     public Collection child;
@@ -36,6 +39,13 @@ public class HumanSprites : ScriptableObject {
     public Collection adult;
     [SerializeField]
     public Collection geezer;
+    
+    [SerializeField]
+    private List<string> _names;
+
+    public ReadOnlyCollection<string> Names {
+        get { return _names.AsReadOnly(); }
+    }
 
     public Collection GetAppropriateCollection(AgeGroup age) {
         switch (age) {

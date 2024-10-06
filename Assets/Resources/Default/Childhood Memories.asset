@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   list:
   - text: CM1
-    karma: 1
+    karma: 3
   - text: CM2
-    karma: 1
+    karma: 3
   - text: CM3
-    karma: 1
+    karma: 3
   - text: CM4
-    karma: 1
+    karma: 3
   - text: CM5
-    karma: 1
+    karma: 3
   - text: CM6
-    karma: 1
+    karma: 3
