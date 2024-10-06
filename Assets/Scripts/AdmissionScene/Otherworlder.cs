@@ -12,6 +12,8 @@ public class Otherworlder : MonoBehaviour
 
     [SerializeField]
     private SpriteRenderer hairSprite;
+    [SerializeField]
+    private SpriteRenderer headSprite;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start() {
@@ -44,8 +46,11 @@ public class Otherworlder : MonoBehaviour
 
         HumanSprites.Collection collection = sprites.GetAppropriateCollection(data.age);
 
-        hairSprite.sprite = collection.GhostHeads[humanData.hairId];
-        //hairSprite.color = data.hairColor;
+        headSprite.sprite = collection.GhostHeads[0];
+        headSprite.color = data.skinColor;
+
+        hairSprite.sprite = collection.GhostHairs[data.hairId];
+        hairSprite.color = data.hairColor;
     }
 
     public void TurnToPlayer() {

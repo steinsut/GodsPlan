@@ -14,17 +14,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   child:
     _ghostHairs:
-    - {fileID: 1523220624630799016, guid: 11415d0961d192f4cbf052c893a0c639, type: 3}
+    - {fileID: 8055641669603851797, guid: c228d10291a88784f89baba7690f5e18, type: 3}
+    _ghostHeads:
+    - {fileID: -9142376855080053938, guid: bbc0386b020665946a12af5e41b3e001, type: 3}
     _portraitHairs:
     - {fileID: 4149677648309312025, guid: 38e7178099a3b994497f728ab3a42847, type: 3}
     _portraitHeads:
     - {fileID: 7403515436065940476, guid: 321328856c01c9d4cae3d1ad9c78142d, type: 3}
   adult:
     _ghostHairs:
-    - {fileID: 2669693128024546348, guid: 11415d0961d192f4cbf052c893a0c639, type: 3}
-    - {fileID: 1415424430384841348, guid: 11415d0961d192f4cbf052c893a0c639, type: 3}
-    - {fileID: 1211700732144574700, guid: 11415d0961d192f4cbf052c893a0c639, type: 3}
-    - {fileID: 8125049016962921162, guid: 11415d0961d192f4cbf052c893a0c639, type: 3}
+    - {fileID: 5634768566131121422, guid: c228d10291a88784f89baba7690f5e18, type: 3}
+    - {fileID: -3681438921347004162, guid: c228d10291a88784f89baba7690f5e18, type: 3}
+    - {fileID: 685319552595679549, guid: c228d10291a88784f89baba7690f5e18, type: 3}
+    - {fileID: -8291001049980071110, guid: c228d10291a88784f89baba7690f5e18, type: 3}
+    _ghostHeads:
+    - {fileID: -9142376855080053938, guid: bbc0386b020665946a12af5e41b3e001, type: 3}
     _portraitHairs:
     - {fileID: -3566166613963310228, guid: 38e7178099a3b994497f728ab3a42847, type: 3}
     - {fileID: -760141227490907042, guid: 38e7178099a3b994497f728ab3a42847, type: 3}
@@ -36,10 +40,12 @@ MonoBehaviour:
     - {fileID: -6535058743674230076, guid: 321328856c01c9d4cae3d1ad9c78142d, type: 3}
   geezer:
     _ghostHairs:
-    - {fileID: 2669693128024546348, guid: 11415d0961d192f4cbf052c893a0c639, type: 3}
-    - {fileID: 1415424430384841348, guid: 11415d0961d192f4cbf052c893a0c639, type: 3}
-    - {fileID: 1211700732144574700, guid: 11415d0961d192f4cbf052c893a0c639, type: 3}
-    - {fileID: 8125049016962921162, guid: 11415d0961d192f4cbf052c893a0c639, type: 3}
+    - {fileID: 5634768566131121422, guid: c228d10291a88784f89baba7690f5e18, type: 3}
+    - {fileID: -3681438921347004162, guid: c228d10291a88784f89baba7690f5e18, type: 3}
+    - {fileID: 685319552595679549, guid: c228d10291a88784f89baba7690f5e18, type: 3}
+    - {fileID: -8291001049980071110, guid: c228d10291a88784f89baba7690f5e18, type: 3}
+    _ghostHeads:
+    - {fileID: -9142376855080053938, guid: bbc0386b020665946a12af5e41b3e001, type: 3}
     _portraitHairs:
     - {fileID: -3566166613963310228, guid: 38e7178099a3b994497f728ab3a42847, type: 3}
     - {fileID: -760141227490907042, guid: 38e7178099a3b994497f728ab3a42847, type: 3}
