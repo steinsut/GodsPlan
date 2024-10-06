@@ -103,14 +103,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53080bbdce7a2324a84f42b82ffba71f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  positions:
-  - {x: 1.827, y: 0.154, z: 0}
-  - {x: 2.426, y: 0.154, z: 0}
-  - {x: 3.348, y: 0.154, z: 0}
-  timeStamps:
-  - 1
-  - 10
-  - 16
+  positions: []
+  timeStamps: []
+  levelParent: {fileID: 0}
 --- !u!70 &4665589041511343569
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

@@ -56,7 +56,7 @@ public class playerController : MonoBehaviour
     void stopControls()
     {
         controllable = false;
-        GameObject.FindGameObjectWithTag("levelManager").GetComponent<LevelManager>().ReturnFromMinigame(levelParent, true);
+        GameObject.FindGameObjectWithTag("levelManager").GetComponent<LevelManager>().ReturnFromMinigame(levelParent, false);
 
     }
 

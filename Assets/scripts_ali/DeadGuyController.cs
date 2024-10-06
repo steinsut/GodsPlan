@@ -32,9 +32,8 @@ public class DeadGuyController : MonoBehaviour
 
     private void die()
     {
-        Debug.Log("YOU FAILED, YOU FAILURE, YOU USELESS PIECE OF SHIT!");
         dead = true;
-        GameObject.FindGameObjectWithTag("levelManager").GetComponent<LevelManager>().ReturnFromMinigame(levelParent, true);
+        GameObject.FindGameObjectWithTag("levelManager").GetComponent<LevelManager>().ReturnFromMinigame(levelParent, false);
     }
 
 
