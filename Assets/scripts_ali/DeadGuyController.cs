@@ -15,12 +15,14 @@ public class DeadGuyController : MonoBehaviour
 
     private float speed = 1f;
 
+    [SerializeField]
     private HumanData humandata;
 
     int lastPosition;
     float currentTime = 0;
 
     bool dead = false;
+    [SerializeField]
     bool canMove = true;
 
     public bool isDead() {  return dead; }
@@ -51,8 +53,13 @@ public class DeadGuyController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        if (canMove)
+        {
+            transform.position = positions[0];
+
+        }
         lastPosition = 0;
-        transform.position = positions[0];
+        loadDetails();
     }
 
     void loadDetails()
@@ -60,16 +67,37 @@ public class DeadGuyController : MonoBehaviour
         humandata = GameObject.FindGameObjectWithTag("levelManager").GetComponent<LevelManager>().GetLevelHuman();
         hair.color = humandata.hairColor;
         head.color = humandata.skinColor;
+        head.sprite = Globals.Instance.MaleSprites.child.GhostHeads[0];
 
         switch (humandata.sex)
         {
             case Sex.MALE:
                 if (humandata.age == AgeGroup.CHILD)
                 {
-                    head.sprite = Globals.Instance.MaleSprites.child.GhostHeads[humandata.headId];
+                    hair.sprite = Globals.Instance.MaleSprites.child.GhostHairs[humandata.headId];
+                } else if (humandata.age == AgeGroup.ADULT)
+                {
+                    hair.sprite = Globals.Instance.MaleSprites.adult.GhostHairs[humandata.headId];
+
+                } else
+                {
+                    hair.sprite = Globals.Instance.MaleSprites.geezer.GhostHairs[humandata.headId];
                 }
                 break;
             case Sex.FEMALE:
+                if (humandata.age == AgeGroup.CHILD)
+                {
+                    hair.sprite = Globals.Instance.FemaleSprites.child.GhostHairs[humandata.headId];
+                }
+                else if (humandata.age == AgeGroup.ADULT)
+                {
+                    hair.sprite = Globals.Instance.FemaleSprites.adult.GhostHairs[humandata.headId];
+
+                }
+                else
+                {
+                    hair.sprite = Globals.Instance.FemaleSprites.geezer.GhostHairs[humandata.headId];
+                }
                 break;
         }
     }

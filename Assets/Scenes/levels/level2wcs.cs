@@ -6,7 +6,9 @@ public class level2wcs : MonoBehaviour
     ToggleController electricityToggle;
     [SerializeField]
     GameObject levelParent;
-   
+    [SerializeField]
+    bool invertWinC = false;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -15,8 +17,9 @@ public class level2wcs : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (!electricityToggle.toggled)
+        if ((!electricityToggle.toggled && invertWinC) || (electricityToggle.toggled && !invertWinC))
         {
+            Debug.Log("WINWINWIN");
             GameObject.FindGameObjectWithTag("levelManager").GetComponent<LevelManager>().ReturnFromMinigame(levelParent, true);
 
         }
