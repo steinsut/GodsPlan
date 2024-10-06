@@ -13,15 +13,22 @@ MonoBehaviour:
   m_Name: Geezerhood Memories
   m_EditorClassIdentifier: 
   list:
-  - text: GM1
-    karma: 0
-  - text: GM2
-    karma: 0
-  - text: GM3
-    karma: 0
-  - text: GM4
-    karma: 0
-  - text: GM5
-    karma: 0
-  - text: GM6
-    karma: 0
+  - text: I yelled at a server because my order was 3 seconds late.
+    karma: -3
+  - text: I drove slowly in the left lane.
+    karma: -4
+  - text: "I saw some teenagers doing some weird stuff which I don't know about.
+      Naturally I called the cops and then left the spot because I couldn\u2019t
+      bear the sight."
+    karma: -2
+  - text: I give my students long homeworks so that they can understand the topic
+      better.
+    karma: -1
+  - text: I gave a child candy.
+    karma: 3
+  - text: I knitted my grandchildren sweaters.
+    karma: 4
+  - text: I was nice to a retail worker.
+    karma: 1
+  - text: I was nice to a retail worker.
+    karma: 1

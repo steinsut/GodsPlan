@@ -11,6 +11,8 @@ public class OtherworldManager : MonoBehaviour
         public int day;
         public int karma;
         public HumanData[] humanData;
+        public Quaternion scaleRotation;
+        public float musicTime;
     }
 
     [Header("Objects")]
@@ -50,6 +52,9 @@ public class OtherworldManager : MonoBehaviour
     [Header("Game Values")]
     [SerializeField]
     private int maxDays = 10;
+
+    [SerializeField]
+    private AudioClip otherworldMusic;
 
     [SerializeField]
     private int minimumPeoplePerDay = 10;
@@ -122,7 +127,7 @@ public class OtherworldManager : MonoBehaviour
                     memoryText += " At my adulthood, " + globals.AdulthoodMemories[data.adulthoodMemory].text;
                 }
                 if(data.age > AgeGroup.ADULT) {
-                    memoryText += " After becoming an old man, " + globals.GeezerhoodMemories[data.adulthoodMemory].text;
+                    memoryText += " After becoming an old man, " + globals.GeezerhoodMemories[data.geezerhoodMemory].text;
                 }
                 contractText.SetText(memoryText);
                 contractText.StartTyping();
@@ -180,10 +185,16 @@ public class OtherworldManager : MonoBehaviour
         currentDay = state.day;
         currentKarma = state.karma;
         otherworlderQueue.SetHumanData(state.humanData);
+        karmaScale.transform.rotation = state.scaleRotation;
+        LevelManager.Instance.GetMusicPlayer().SetAudio(otherworldMusic);
+        LevelManager.Instance.GetMusicPlayer().Seek(state.musicTime);
+        LevelManager.Instance.GetMusicPlayer().FadeIn(2.4f);
 
         dayText.text = "Day " + currentDay;
 
         if (succeeded) {
+            Debug.Log("Current Karma: " + currentKarma);
+            Debug.Log("Gained Karma: " + otherworlderQueue.GetNextHumanData().GetTotalKarma());
             currentKarma += otherworlderQueue.GetNextHumanData().GetTotalKarma();
             currentKarma = Math.Clamp(currentKarma, -10, 10);
             karmaScale.Tip(currentKarma);
@@ -192,10 +203,13 @@ public class OtherworldManager : MonoBehaviour
     }
 
     public void OnSaveClick() {
+        contractText.StopTyping();
         State state = new State();
         state.day = currentDay;
         state.karma = currentKarma;
         state.humanData = otherworlderQueue.GetAllHumanData();
+        state.scaleRotation = karmaScale.transform.rotation;
+        state.musicTime = LevelManager.Instance.GetMusicPlayer().GetTime();
         LevelManager.Instance.GoToMinigame(otherworlderQueue.GetNextHumanData(), state);
         saveButton.interactable = false;
         denyButton.interactable = false;

@@ -18,16 +18,23 @@ public class LevelManager : MonoBehaviour
 
     private Camera otherworldCamera;
 
-    [SerializeField]
-    private Animator transitionAnimator;
-
     private OtherworldManager otherworldManager;
 
     [SerializeField]
-    private GameObject allChildren;
+    private Animator transitionAnimator;
+
+    [SerializeField]
+    private AudioClip gameMusic;
+
+
+    [SerializeField]
+    private MusicPlayer musicPlayer;
 
     [SerializeField]
     private StringList levelList;
+
+    [SerializeField]
+    private GameObject allChildren;
 
     [SerializeField]
     private int trainingLevelCount = 0;
@@ -45,6 +52,10 @@ public class LevelManager : MonoBehaviour
 
     public HumanData GetLevelHuman() {
         return humanData;
+    }
+
+    public MusicPlayer GetMusicPlayer() {
+        return musicPlayer;
     }
 
     private void Awake() {
@@ -76,9 +87,12 @@ public class LevelManager : MonoBehaviour
         }
 
         transitionAnimator.SetTrigger("DoTransition");
-        StartCoroutine(GenericCoroutine(1f, delegate() {
+        musicPlayer.FadeOut(0.75f);
+        StartCoroutine(GenericCoroutine(1.5f, delegate() {
             SceneManager.LoadSceneAsync(targetLevel).completed += delegate (AsyncOperation op) {
                 allChildren.gameObject.SetActive(false);
+                musicPlayer.ResetVolume();
+                musicPlayer.SetAudio(null);
             };
         }));
     }
@@ -94,7 +108,6 @@ public class LevelManager : MonoBehaviour
 
             otherworldCamera = Camera.allCameras[0];
             otherworldManager = GameObject.Find("Otherworld Manager").GetComponent<OtherworldManager>();
-
             otherworldManager.MinigameFinished(minigameWon, otherworldState);
         };
     }

@@ -13,15 +13,31 @@ MonoBehaviour:
   m_Name: Adulthood Memories
   m_EditorClassIdentifier: 
   list:
-  - text: AM1
-    karma: 0
-  - text: AM2
-    karma: 0
-  - text: AM3
-    karma: 0
-  - text: AM4
-    karma: 0
-  - text: AM5
-    karma: 0
-  - text: AM6
-    karma: 0
+  - text: "One of my worker\u2019s partner died. A day later their child died too.
+      Two days later their cat died. They said they cannot come to work because they
+      wanted to grieve their losses. I fired them immediately on the spot because
+      your first priority must always be your job."
+    karma: -10
+  - text: I stole my coworkers' food.
+    karma: -5
+  - text: I did not give my friend lecture notes before the exams. Although they
+      asked.
+    karma: -2
+  - text: I added microtransactions to a video game.
+    karma: -10
+  - text: I prevented my friend from sleeping.
+    karma: -8
+  - text: I escorted my drunk friend home.
+    karma: 5
+  - text: I joined a game jam and made a game about an angel choosing who to send
+      back to the living world.
+    karma: 1
+  - text: "I saw someone with a broken down car on the side of the road. I stopped
+      next to them to help. I asked them why their car broke down but it turns out
+      they don't know either. In the end the car wasn\u2019t turned on."
+    karma: 3
+  - text: I helped my friend with moving their house.
+    karma: 3
+  - text: "I helped my friend to get a good night\u2019s sleep."
+    karma: 8
+  
