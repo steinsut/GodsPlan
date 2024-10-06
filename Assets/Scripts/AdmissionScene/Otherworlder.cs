@@ -19,7 +19,7 @@ public class Otherworlder : MonoBehaviour
     void Start() {
         startingY = transform.localPosition.y;
         offset = Random.value;
-        flySpeed = Random.value * 0.64f;
+        flySpeed = Random.value * 1.3f;
         flyHeight = 0.083f + Random.value * 0.0656f;
     }
 
@@ -51,9 +51,5 @@ public class Otherworlder : MonoBehaviour
 
         hairSprite.sprite = collection.GhostHairs[data.hairId];
         hairSprite.color = data.hairColor;
-    }
-
-    public void TurnToPlayer() {
-
     }
 }

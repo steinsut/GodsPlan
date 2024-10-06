@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Last Names
   m_EditorClassIdentifier: 
   list:
-  - Andersson 
+  - Andersson
   - Johansson
   - Karlsson
   - Nilsson
@@ -28,7 +28,6 @@ MonoBehaviour:
   - Jansson
   - Hansson
   - Bengtsson
-  - Jönsson
   - Lindberg
   - Jakobsson
   - Magnusson
@@ -54,7 +53,7 @@ MonoBehaviour:
   - Thompson
   - White
   - Lopez
-  - Lee	22
+  - Lee
   - Gonzalez
   - Harris
   - Clark

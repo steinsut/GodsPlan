@@ -13,15 +13,24 @@ MonoBehaviour:
   m_Name: Childhood Memories
   m_EditorClassIdentifier: 
   list:
-  - text: CM1
-    karma: 3
-  - text: CM2
-    karma: 3
-  - text: CM3
-    karma: 3
-  - text: CM4
-    karma: 3
-  - text: CM5
-    karma: 3
-  - text: CM6
-    karma: 3
+  - text: "I was playing with my friend. They left their candy on the bench. I couldn\u2019t
+      resist it so I stole my friend\u2019s candy. My friend wondered where their
+      candy went and started crying"
+    karma: -1
+  - text: I bullied someone in school. They needed to get therapy due to it.
+    karma: -7
+  - text: In kindergarten I beat up my friends because they didn't give me their
+      toy. I also broke their toy.
+    karma: -5
+  - text: 'I saw a cool bike my friend was riding. I was jealous of it so I stole
+      their bike. '
+    karma: -3
+  - text: I saw my friend crying. I talked to them to learn what the problem is.
+      They said someone stole their candy. I went and bought them candy. They were
+      so happy.
+    karma: 5
+  - text: My friend was crying because they couldn't do their homework. I helped
+      them to complete their homework and gave them tips about the lesson.
+    karma: 6
+  - text: I got the top grade in a  few lessons.
+    karma: 1

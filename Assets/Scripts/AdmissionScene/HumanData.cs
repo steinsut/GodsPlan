@@ -12,6 +12,8 @@ public class HumanData {
         human.age = (AgeGroup)Random.Range(0, 3);
         human.sex = (Sex)Random.Range(0, 2);
 
+        human.age = AgeGroup.GEEZER;
+
         HumanResources resources;
         if (human.sex == Sex.FEMALE) {
             resources = globals.FemaleSprites;

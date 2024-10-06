@@ -1,7 +1,9 @@
 using System;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
+using Random = UnityEngine.Random;
 
 public class TypewritingText : MonoBehaviour
 {
@@ -17,9 +19,16 @@ public class TypewritingText : MonoBehaviour
     private float timeElapsed = 0;
     private bool typing = false;
 
+    private bool stop = false;
+    
     [SerializeField]
     private float textSpeed = 1f;
 
+    private IEnumerator Unstop() {
+        yield return new WaitForSeconds(0.37f);
+
+        stop = false;
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start() {
@@ -45,6 +54,7 @@ public class TypewritingText : MonoBehaviour
     // Update is called once per frame
     void Update() {
         if (!typing) return;
+        if (stop) return;
 
         timeElapsed += Time.deltaTime;
         while (timeElapsed >= (1/textSpeed) && currentLetters < textMesh.text.Length) {
@@ -57,6 +67,13 @@ public class TypewritingText : MonoBehaviour
             if (!playedAudio) { 
                 audioSource.Play(); 
                 playedAudio = true;
+            }
+
+            if (textMesh.text[currentLetters - 1] == '.')
+            {
+                stop = true;
+                StartCoroutine(Unstop());
+                break;
             }
         }
     }

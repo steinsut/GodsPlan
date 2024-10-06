@@ -42,10 +42,10 @@ public class KarmaScale : MonoBehaviour
                 Quaternion.RotateTowards(scaleRod.transform.rotation,
                                         targetRotation,
                                         Time.deltaTime * rotateSpeed);
-            /*
+            
             if (scaleRod.transform.rotation == targetRotation) { 
                 tipping = false;
-            }*/
+            }
         }
         badArm.position = leftPlaceholder.position;
         goodArm.position = rightPlaceholder.position;
