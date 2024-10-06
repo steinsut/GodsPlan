@@ -406,19 +406,19 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 856050801}
     m_Modifications:
     - target: {fileID: 3353639378606654027, guid: a3a4b0e3ba33a524aa731198fcd02a3c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.85
+      value: 0.2998234
       objectReference: {fileID: 0}
     - target: {fileID: 3353639378606654027, guid: a3a4b0e3ba33a524aa731198fcd02a3c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.125
+      value: 0.01819323
       objectReference: {fileID: 0}
     - target: {fileID: 3353639378606654027, guid: a3a4b0e3ba33a524aa731198fcd02a3c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.063301854
       objectReference: {fileID: 0}
     - target: {fileID: 3353639378606654027, guid: a3a4b0e3ba33a524aa731198fcd02a3c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -552,6 +552,7 @@ Transform:
   - {fileID: 271655583}
   - {fileID: 1822621334}
   - {fileID: 646937456}
+  - {fileID: 1852359954}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &878498940
@@ -4554,6 +4555,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: User-Package
       objectReference: {fileID: 0}
+    - target: {fileID: 7161195583296643130, guid: 47826bdb7b4095146b41a74f4d5a5ad6, type: 3}
+      propertyPath: orthographic size
+      value: 0.75
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5280,5 +5285,4 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 558638048}
   - {fileID: 856050801}
