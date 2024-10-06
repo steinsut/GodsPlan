@@ -10,6 +10,9 @@ public class ToggleController : MonoBehaviour
 
     private SpriteRenderer spriteRenderer;
 
+    [SerializeField]
+    private AudioSource sfxSource;
+
     private bool playerContact = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -41,6 +44,7 @@ public class ToggleController : MonoBehaviour
             if (Input.GetButtonDown("Interract"))
             {
                 toggled = !toggled;
+                sfxSource.Play();
             }
         }
 

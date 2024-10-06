@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class playerController : MonoBehaviour
 {
@@ -20,6 +21,12 @@ public class playerController : MonoBehaviour
 
     private BoxCollider2D footColider;
 
+    [SerializeField]
+    private AudioSource fallSource;
+
+    [SerializeField]
+    private AudioSource walkSource, jumpSource, hurtSource;
+
     void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
@@ -29,6 +36,9 @@ public class playerController : MonoBehaviour
     float horizontalMovement = 0.0f;
     float verticalMovement = 0.0f;
     float jumpForce = 0.0f;
+
+    [SerializeField]
+    private float fallSoundThreshhold = 3.0f;
 
     private const float jumpThreshold = 0.0001f;
 
@@ -57,6 +67,11 @@ public class playerController : MonoBehaviour
     [SerializeField]
     private GameObject levelParent;
 
+    [SerializeField]
+    private float stepGap = 0.1f;
+    private float currentStep = 0.0f;
+
+ 
     void stopControls()
     {
         controllable = false;
@@ -71,13 +86,21 @@ public class playerController : MonoBehaviour
         {
             if (collision.contactCount > 0)
             {
+                
                 if (controllable)
                 {
                     ContactPoint2D contactPoint = collision.GetContact(0);
                     rigidbody.AddForceAtPosition((new Vector2(transform.position.x, transform.position.y) - contactPoint.point ).normalized * deathForce * contactPoint.relativeVelocity ,contactPoint.point);
+                    hurtSource.Play();
                 }
                 stopControls();
 
+            }
+        } else
+        {
+            if (collision.relativeVelocity.magnitude > fallSoundThreshhold)
+            {
+                fallSource.Play();
             }
         }
     }
@@ -96,6 +119,7 @@ public class playerController : MonoBehaviour
         {
             return;
         }
+        
         float verticalInput = Input.GetAxis("Vertical");
         if (ladderCount > 0)
         {
@@ -136,6 +160,25 @@ public class playerController : MonoBehaviour
         horizontalMovement = horizontalInput * speed;
 
         spriteAnimationController.SetFloat("abs_hi", Mathf.Abs(horizontalMovement));
+
+        if (controllable)
+        {
+            if (Mathf.Abs(horizontalMovement) > 0.1f && !onAir)
+            {
+                currentStep += Time.deltaTime;
+            } else
+            {
+                currentStep = 0;
+            }
+        } else
+        {
+            currentStep = 0;
+        }
+        if (currentStep > stepGap)
+        {
+            walkSource.Play();
+            currentStep = 0;
+        }
     }
 
     private void FixedUpdate()
@@ -155,12 +198,18 @@ public class playerController : MonoBehaviour
         {
             if (footColider.IsTouchingLayers(LayerMask.GetMask("canWalk")))
             {
+                
                 if (onAir)
                 {
                     pressTime = 0;
                 }
                 onAir = false;
                 rigidbody.AddForceY(jumpForce);
+                if (jumpForce > 0.1f)
+                {
+
+                    jumpSource.Play();
+                }
             }
             else
             {
