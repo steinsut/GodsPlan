@@ -6,24 +6,20 @@ public class Globals : MonoBehaviour
 {
     private static Globals _instance = null;
 
-    private StringList _names;
     private StringList _surnames;
     private MemoryList _childhoodMemories;
     private MemoryList _adulthoodMemories;
     private MemoryList _geezerhoodMemories;
-    private HumanSprites _femaleSprites;
-    private HumanSprites _maleSprites;
+    private HumanResources _femaleSprites;
+    private HumanResources _maleSprites;
 
-    public ReadOnlyCollection<string> Names {
-        get { return _names.values; }
-    }
     public ReadOnlyCollection<string> Surnames {
         get { return _surnames.values; }
     }
-    public HumanSprites  FemaleSprites {
+    public HumanResources  FemaleSprites {
         get { return _femaleSprites; }
     }
-    public HumanSprites MaleSprites {
+    public HumanResources MaleSprites {
         get { return _maleSprites; }
     }
     public ReadOnlyCollection<Memory> ChildhoodMemories {
@@ -47,11 +43,10 @@ public class Globals : MonoBehaviour
     }
 
     private void Awake() {
-        _names = Resources.Load<StringList>("Default/First Names");
         _surnames = Resources.Load<StringList>("Default/Last Names");
 
-        _femaleSprites = Resources.Load<HumanSprites>("Default/Female Sprites");
-        _maleSprites = Resources.Load<HumanSprites>("Default/Hate Speech");
+        _femaleSprites = Resources.Load<HumanResources>("Default/Female Sprites");
+        _maleSprites = Resources.Load<HumanResources>("Default/Hate Speech");
 
         _childhoodMemories = Resources.Load<MemoryList>("Default/Childhood Memories");
         _adulthoodMemories = Resources.Load<MemoryList>("Default/Adulthood Memories");

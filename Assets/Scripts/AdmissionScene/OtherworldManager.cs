@@ -6,9 +6,14 @@ using Random = UnityEngine.Random;
 
 public class OtherworldManager : MonoBehaviour
 {
+    [Serializable]
+    public class State {
+        public int day;
+        public int karma;
+        public HumanData[] humanData;
+    }
+
     [Header("Objects")]
-    [SerializeField]
-    private LevelManager levelManager;
     [SerializeField]
     private OtherworlderQueue otherworlderQueue;
     [SerializeField]
@@ -37,6 +42,11 @@ public class OtherworldManager : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI dayText;
 
+    [SerializeField]
+    private Button saveButton;
+    [SerializeField]
+    private Button denyButton;
+
     [Header("Game Values")]
     [SerializeField]
     private int maxDays = 10;
@@ -51,14 +61,14 @@ public class OtherworldManager : MonoBehaviour
     private bool preparedContract = false;
 
     private void Start() {
-        PrepareNewDay();
+        if (!startedDay) { 
+            PrepareNewDay();
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (contractAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f) return;
-
         if (!startedDay) {
             HideContract();
             return;
@@ -75,18 +85,21 @@ public class OtherworldManager : MonoBehaviour
         else {
             if(!preparedContract)
             {
+                saveButton.interactable = true;
+                denyButton.interactable = true;
+
                 Globals globals = Globals.Instance;
                 HumanData data = otherworlderQueue.GetNextHumanData();
                 contractName.text = data.firstName + " " + data.surname;
 
-                HumanSprites sprites;
+                HumanResources sprites;
                 if (data.sex == Sex.FEMALE) {
                     sprites = globals.FemaleSprites;
                 }
                 else {
                     sprites = globals.MaleSprites;
                 }
-                HumanSprites.Collection collection = sprites.GetAppropriateCollection(data.age);
+                HumanResources.Collection collection = sprites.GetAppropriateCollection(data.age);
                 portraitHair.enabled = true;
                 portraitHair.sprite = collection.PortraitHairs[data.hairId];
                 portraitHead.sprite = collection.PortraitHeads[data.headId];
@@ -160,8 +173,16 @@ public class OtherworldManager : MonoBehaviour
         }
     }
 
-    public void MinigameFinished(bool succeeded) {
-        contractAnimator.Play("Shown");
+    public void MinigameFinished(bool succeeded, State state) {
+        preparedContract = true;
+        startedDay = true;
+
+        currentDay = state.day;
+        currentKarma = state.karma;
+        otherworlderQueue.SetHumanData(state.humanData);
+
+        dayText.text = "Day " + currentDay;
+
         if (succeeded) {
             currentKarma += otherworlderQueue.GetNextHumanData().GetTotalKarma();
             currentKarma = Math.Clamp(currentKarma, -10, 10);
@@ -171,10 +192,18 @@ public class OtherworldManager : MonoBehaviour
     }
 
     public void OnSaveClick() {
-        levelManager.GoToMinigame(otherworlderQueue.GetNextHumanData());
+        State state = new State();
+        state.day = currentDay;
+        state.karma = currentKarma;
+        state.humanData = otherworlderQueue.GetAllHumanData();
+        LevelManager.Instance.GoToMinigame(otherworlderQueue.GetNextHumanData(), state);
+        saveButton.interactable = false;
+        denyButton.interactable = false;
     }
 
     public void OnDenyClick() {
         otherworlderQueue.ProgressQueue(false);
+        saveButton.interactable = false;
+        denyButton.interactable = false;
     }
 }

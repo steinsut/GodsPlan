@@ -1,16 +1,27 @@
 using System;
 using System.Collections;
+using System.Resources;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 public class LevelManager : MonoBehaviour
 {
-    [SerializeField]
-    private Camera _camera;
+    private static LevelManager _instance = null;
+
+    public static LevelManager Instance
+    {
+        get {
+            return _instance;
+        }
+    }
+
+    private Camera otherworldCamera;
 
     [SerializeField]
     private Animator transitionAnimator;
+
+    private OtherworldManager otherworldManager;
 
     [SerializeField]
     private GameObject allChildren;
@@ -21,10 +32,8 @@ public class LevelManager : MonoBehaviour
     [SerializeField]
     private int trainingLevelCount = 0;
 
-    [SerializeField]
-    private OtherworldManager previousSceneParent;
-
     private HumanData humanData;
+    private OtherworldManager.State otherworldState;
 
     int currentTrainingStage = 0;
 
@@ -39,10 +48,20 @@ public class LevelManager : MonoBehaviour
     }
 
     private void Awake() {
-        DontDestroyOnLoad(this);
+        if (_instance == null) {
+            _instance = this;
+            DontDestroyOnLoad(this);
+            otherworldCamera = Camera.allCameras[0];
+            otherworldManager = GameObject.Find("Otherworld Manager").GetComponent<OtherworldManager>();
+        }
+        else { 
+            Destroy(gameObject);
+        }
     }
 
-    public void GoToMinigame(HumanData data) {
+    public void GoToMinigame(HumanData data, OtherworldManager.State state) {
+        humanData = data;
+        otherworldState = state;
         allChildren.SetActive(true);
 
         string targetLevel;
@@ -58,8 +77,6 @@ public class LevelManager : MonoBehaviour
 
         transitionAnimator.SetTrigger("DoTransition");
         StartCoroutine(GenericCoroutine(1f, delegate() {
-            DontDestroyOnLoad(previousSceneParent.gameObject);
-            previousSceneParent.gameObject.SetActive(false);
             SceneManager.LoadSceneAsync(targetLevel).completed += delegate (AsyncOperation op) {
                 allChildren.gameObject.SetActive(false);
             };
@@ -68,15 +85,17 @@ public class LevelManager : MonoBehaviour
 
     public void ReturnFromMinigame(GameObject minigameSceneParent, bool minigameWon) {
         allChildren.SetActive(true);
+        SceneManager.LoadSceneAsync("AdmissionScene").completed += delegate(AsyncOperation op) {
+            transitionAnimator.Play("EndTransition");
 
-        Destroy(minigameSceneParent);
-        
-        _camera.gameObject.SetActive(true);
-        transitionAnimator.Play("EndTransition");
+            StartCoroutine(GenericCoroutine(0.5f, delegate () {
+                allChildren.SetActive(false);
+            }));
 
-        SceneManager.MoveGameObjectToScene(previousSceneParent.gameObject, SceneManager.GetActiveScene());
-        previousSceneParent.gameObject.SetActive(true);
-        previousSceneParent.MinigameFinished(minigameWon);
-        allChildren.SetActive(false);
+            otherworldCamera = Camera.allCameras[0];
+            otherworldManager = GameObject.Find("Otherworld Manager").GetComponent<OtherworldManager>();
+
+            otherworldManager.MinigameFinished(minigameWon, otherworldState);
+        };
     }
 }

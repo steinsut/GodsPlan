@@ -41,10 +41,10 @@ public class Otherworlder : MonoBehaviour
     public void SetHumanData(HumanData data) {
         humanData = data;
 
-        HumanSprites sprites = data.sex == Sex.FEMALE ? Globals.Instance.FemaleSprites 
+        HumanResources sprites = data.sex == Sex.FEMALE ? Globals.Instance.FemaleSprites 
             : Globals.Instance.MaleSprites;
 
-        HumanSprites.Collection collection = sprites.GetAppropriateCollection(data.age);
+        HumanResources.Collection collection = sprites.GetAppropriateCollection(data.age);
 
         headSprite.sprite = collection.GhostHeads[0];
         headSprite.color = data.skinColor;

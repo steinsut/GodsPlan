@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using static Unity.Cinemachine.CinemachineSplineRoll;
 
 public class OtherworlderQueue : MonoBehaviour
 {
@@ -25,7 +26,6 @@ public class OtherworlderQueue : MonoBehaviour
     private bool progressing = false;
     private bool savedFront = false;
     private bool frontDisappeared = false;
-    private int remainingOtherworlders = 0;
 
     public Animator animator;
 
@@ -40,7 +40,7 @@ public class OtherworlderQueue : MonoBehaviour
     }
 
     public int GetRemainingOtherworlders() {
-        return remainingOtherworlders;
+        return otherworlders.Count;
     }
 
     public void PrepareQueue(int count, int influenceKarma) {
@@ -68,17 +68,7 @@ public class OtherworlderQueue : MonoBehaviour
 
         allData.AddRange(GenerateHumans(droppedCount));
 
-        for (int i = 0; i < count; i++)
-        {
-            otherworlders.Add(Instantiate<Otherworlder>(otherworlderPrefab, transform));
-            otherworlders[i].SetHumanData(allData[i]);
-            otherworlders[i].transform.position = new Vector3(
-                doorstop.position.x - i * queueSpacing,
-                otherworlders[i].transform.position.y,
-                otherworlders[i].transform.position.z);
-        }
-
-        remainingOtherworlders = allData.Count;
+        SetHumanData(allData.ToArray());
     }
 
     public void ProgressQueue(bool saveFront) {
@@ -96,6 +86,32 @@ public class OtherworlderQueue : MonoBehaviour
         return otherworlders[0].GetHumanData();
     }
 
+    public void SetHumanData(HumanData[] data) {
+        for (int i = 0; i < otherworlders.Count; i++) { 
+            Destroy(otherworlders[i]);
+        }
+        otherworlders.Clear();
+
+        for (int i = 0; i < data.Length; i++) {
+            otherworlders.Add(Instantiate<Otherworlder>(otherworlderPrefab, transform));
+            otherworlders[i].SetHumanData(data[i]);
+            otherworlders[i].transform.position = new Vector3(
+                doorstop.position.x - i * queueSpacing,
+                otherworlders[i].transform.position.y,
+                otherworlders[i].transform.position.z);
+        }
+    }
+
+    public HumanData[] GetAllHumanData() {
+        HumanData[] data = new HumanData[otherworlders.Count];
+
+        for(int i = 0; i < otherworlders.Count; i++) {
+            data[i] = otherworlders[i].GetHumanData();
+        }
+
+        return data;
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     private void Start() {
@@ -110,13 +126,13 @@ public class OtherworlderQueue : MonoBehaviour
             if (!savedFront) {
                 if (otherworlders[0].transform.position.x < exit.position.x) {
                     otherworlders[0].transform.Translate(queueLeaveSpeed * Time.deltaTime, 0f, 0f);
-                    for (int i = 1; i < remainingOtherworlders; i++) {
+                    for (int i = 1; i < otherworlders.Count; i++) {
                         float queueMovement = queueMoveSpeed * 0.75f * Time.deltaTime;
                         otherworlders[i].transform.Translate(queueMovement, 0f, 0f);
                     }
-                    if (remainingOtherworlders > 1 && otherworlders[1].transform.position.x > doorstop.position.x)
+                    if (otherworlders.Count > 1 && otherworlders[1].transform.position.x > doorstop.position.x)
                     {
-                        for (int i = remainingOtherworlders - 1; i >= 1; i--)
+                        for (int i = otherworlders.Count - 1; i >= 1; i--)
                         {
                             float overstep = doorstop.position.x - otherworlders[1].transform.position.x;
                             otherworlders[i].transform.Translate(overstep, 0f, 0f);
@@ -129,21 +145,20 @@ public class OtherworlderQueue : MonoBehaviour
             }
             else {
                 if(!frontDisappeared) {
-                    remainingOtherworlders--;
                     Otherworlder otherworlder = otherworlders[0];
                     otherworlders.RemoveAt(0);
                     Destroy(otherworlder.gameObject);
 
                     frontDisappeared = true;
                 }
-                if (remainingOtherworlders > 0 && otherworlders[0].transform.position.x < doorstop.position.x) {
-                    for(int i = 0; i < remainingOtherworlders; i++) {
+                if (otherworlders.Count > 0 && otherworlders[0].transform.position.x < doorstop.position.x) {
+                    for(int i = 0; i < otherworlders.Count; i++) {
                         float movement = queueMoveSpeed * Time.deltaTime;
                         otherworlders[i].transform.Translate(movement, 0f, 0f);
                     }
                     if(otherworlders[0].transform.position.x
                         > doorstop.position.x) {
-                        for (int i = remainingOtherworlders - 1; i >= 0; i--) {
+                        for (int i = otherworlders.Count - 1; i >= 0; i--) {
                             float overstep = doorstop.position.x -
                                 (otherworlders[0].transform.position.x);
                             otherworlders[i].transform.Translate(overstep, 0f, 0f);
