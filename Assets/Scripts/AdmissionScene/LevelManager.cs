@@ -83,7 +83,7 @@ public class LevelManager : MonoBehaviour
         else {
             int levelCount = levelList.values.Count - trainingLevelCount;
 
-            targetLevel = levelList.values[Random.Range(trainingLevelCount, levelList.values.Count)];
+            targetLevel = levelList.values[Random.Range(0, levelList.values.Count)];
         }
 
         transitionAnimator.SetTrigger("DoTransition");

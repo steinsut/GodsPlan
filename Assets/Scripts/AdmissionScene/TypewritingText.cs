@@ -45,6 +45,10 @@ public class TypewritingText : MonoBehaviour
         typing = false;
     }
 
+    public bool IsCompleted() {
+        return currentLetters == textMesh.text.Length;
+    }
+
     public void SetText(string text) {
         textMesh.text = text;
         timeElapsed = 0;
