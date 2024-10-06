@@ -2824,6 +2824,7 @@ MonoBehaviour:
   queueSpacing: 0.36
   queueMoveSpeed: 0.27
   queueLeaveSpeed: 0.57
+  animator: {fileID: 1834892844}
 --- !u!4 &1496046417
 Transform:
   m_ObjectHideFlags: 0
@@ -3384,7 +3385,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 14, y: -721}
+  m_AnchoredPosition: {x: 14, y: -737}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1834892844

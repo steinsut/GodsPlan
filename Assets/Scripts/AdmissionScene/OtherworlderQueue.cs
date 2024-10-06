@@ -27,6 +27,8 @@ public class OtherworlderQueue : MonoBehaviour
     private bool frontDisappeared = false;
     private int remainingOtherworlders = 0;
 
+    public Animator animator;
+
     private HumanData[] GenerateHumans(int count) {
         HumanData[] humans = new HumanData[count];
 
@@ -101,6 +103,9 @@ public class OtherworlderQueue : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
+
+        animator.SetBool("visibility", !progressing);
+
         if (progressing) {
             if (!savedFront) {
                 if (otherworlders[0].transform.position.x < exit.position.x) {
