@@ -84,6 +84,14 @@ public class OtherworldManager : MonoBehaviour
             return;
         }
 
+        if (Input.GetButtonDown("accept"))
+        {
+            OnSaveClick();
+        } else if (Input.GetButtonDown("deny"))
+        {
+            OnDenyClick();
+        }
+
         if(otherworlderQueue.IsProgressing()) {
             HideContract();
         }
