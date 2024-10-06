@@ -62,8 +62,9 @@ public class Globals : MonoBehaviour
     void Start()
     {
         if (_instance != this) {
-            Destroy(this);
+            Destroy(gameObject);
         }
+        DontDestroyOnLoad(gameObject);
     }
 
     private void OnDestroy() {
