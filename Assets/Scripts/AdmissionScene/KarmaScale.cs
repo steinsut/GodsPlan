@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class KarmaScale : MonoBehaviour
@@ -26,7 +27,11 @@ public class KarmaScale : MonoBehaviour
 
     public void Tip(int newKarma) {
         startRotation = scaleRod.transform.rotation;
-        targetRotation = Quaternion.Euler(0, 0, (newKarma / 3) * (maxRotation / -2));
+        int absKarma = Math.Abs(newKarma);
+
+        if(absKarma <= 2) { targetRotation = Quaternion.Euler(0, 0, 0); }
+        else if (absKarma <= 6) { targetRotation = Quaternion.Euler(0, 0, maxRotation / -2); }
+        else { targetRotation = Quaternion.Euler(0, 0, maxRotation * -1); }
 
         tipping = true;
     }
@@ -37,10 +42,10 @@ public class KarmaScale : MonoBehaviour
                 Quaternion.RotateTowards(scaleRod.transform.rotation,
                                         targetRotation,
                                         Time.deltaTime * rotateSpeed);
-
-            if (scaleRod.transform.rotation == startRotation) { 
+            /*
+            if (scaleRod.transform.rotation == targetRotation) { 
                 tipping = false;
-            }
+            }*/
         }
         badArm.position = leftPlaceholder.position;
         goodArm.position = rightPlaceholder.position;

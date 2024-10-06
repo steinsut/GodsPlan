@@ -50,9 +50,6 @@ public class OtherworldManager : MonoBehaviour
     private bool startedDay = false;
     private bool preparedContract = false;
 
-    private bool onMinigame = false;
-    private bool moveToMinigame = false;
-
     private void Start() {
         PrepareNewDay();
     }
@@ -60,8 +57,9 @@ public class OtherworldManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (contractAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f) return;
+
         if (!startedDay) {
-            Debug.Log("STARTED DAY");
             HideContract();
             return;
         }
@@ -118,7 +116,6 @@ public class OtherworldManager : MonoBehaviour
 
                 preparedContract = true;
                 contractAnimator.SetTrigger("Show");
-
             }
         }
     }
@@ -164,6 +161,7 @@ public class OtherworldManager : MonoBehaviour
     }
 
     public void MinigameFinished(bool succeeded) {
+        contractAnimator.Play("Shown");
         if (succeeded) {
             currentKarma += otherworlderQueue.GetNextHumanData().GetTotalKarma();
             currentKarma = Math.Clamp(currentKarma, -10, 10);

@@ -69,7 +69,6 @@ public class LevelManager : MonoBehaviour
     public void ReturnFromMinigame(GameObject minigameSceneParent, bool minigameWon) {
         allChildren.SetActive(true);
 
-        minigameSceneParent.gameObject.SetActive(false);
         Destroy(minigameSceneParent);
         
         _camera.gameObject.SetActive(true);
