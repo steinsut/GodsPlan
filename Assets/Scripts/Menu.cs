@@ -16,7 +16,7 @@ public class Menu : MonoBehaviour
 
         if(Input.GetMouseButtonDown(0)) {
             if (!meowed) { 
-                SceneManager.LoadSceneAsync("AdmissionScene");
+                SceneManager.LoadSceneAsync("Tutorial");
             }
             else {
                 meowed = false;

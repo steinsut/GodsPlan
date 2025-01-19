@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: 943a40777725ff347a5c1f2fd2811cda
+  - enabled: 1
+    path: Assets/Scenes/Tutorial.unity
+    guid: fda5b62c7eb7c174faede46448dfa980
+  - enabled: 1
     path: Assets/Scenes/AdmissionScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
@@ -20,6 +26,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/levels/level4.unity
     guid: b5f6cfd904e2eed4c93e0db470f70abb
+  - enabled: 1
+    path: Assets/Scenes/Lose.unity
+    guid: 0613f7a7960511e44825192ab924f7e0
+  - enabled: 1
+    path: Assets/Scenes/Win.unity
+    guid: 6ec72e6bb83ee494e87b59a87a0139a4
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

@@ -51,6 +51,7 @@ public class TypewritingText : MonoBehaviour
 
     public void SetText(string text) {
         textMesh.text = text;
+        textMesh.maxVisibleCharacters = 0;
         timeElapsed = 0;
         currentLetters = 0;
     }

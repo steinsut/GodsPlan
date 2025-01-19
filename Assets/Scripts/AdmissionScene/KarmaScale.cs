@@ -7,6 +7,11 @@ public class KarmaScale : MonoBehaviour
     private float maxRotation = 20f;
 
     [SerializeField]
+    private Transform badWarning;
+    [SerializeField]
+    private Transform goodWarning;
+
+    [SerializeField]
     private Transform badArm;    
     [SerializeField]
     private Transform goodArm;
@@ -26,12 +31,22 @@ public class KarmaScale : MonoBehaviour
     private bool tipping = false;
 
     public void Tip(int newKarma) {
+        goodWarning.gameObject.SetActive(false);
+        badWarning.gameObject.SetActive(false);
         startRotation = scaleRod.transform.rotation;
         int absKarma = Math.Abs(newKarma);
+        int karmaSign = Math.Sign(newKarma);
 
         if(absKarma <= 2) { targetRotation = Quaternion.Euler(0, 0, 0); }
-        else if (absKarma <= 6) { targetRotation = Quaternion.Euler(0, 0, maxRotation / -2); }
-        else { targetRotation = Quaternion.Euler(0, 0, maxRotation * -1); }
+        else if (absKarma <= 6) { 
+            targetRotation = Quaternion.Euler(0, 0, maxRotation / (-2 * karmaSign)); 
+        }
+        else {
+            if (karmaSign < 0) { badWarning.gameObject.SetActive(true); }
+            else { goodWarning.gameObject.SetActive(true); }
+
+            targetRotation = Quaternion.Euler(0, 0, maxRotation * (-1 * karmaSign)); 
+        }
 
         tipping = true;
     }

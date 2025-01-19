@@ -111,4 +111,38 @@ public class LevelManager : MonoBehaviour
             otherworldManager.MinigameFinished(minigameWon, otherworldState);
         };
     }
+
+    public void GoToLose()
+    {
+        allChildren.SetActive(true);
+        transitionAnimator.SetTrigger("DoTransition");
+        musicPlayer.FadeOut(0.75f);
+        StartCoroutine(GenericCoroutine(1.5f, delegate () {
+            SceneManager.LoadSceneAsync("Lose").completed += delegate (AsyncOperation op) {
+                allChildren.gameObject.SetActive(false);
+                musicPlayer.ResetVolume();
+                musicPlayer.SetAudio(null);
+            };
+        }));
+    }
+
+    public void GoToWin()
+    {
+        allChildren.SetActive(true);
+        transitionAnimator.SetTrigger("DoTransition");
+        musicPlayer.FadeOut(0.75f);
+        StartCoroutine(GenericCoroutine(1.5f, delegate () {
+            SceneManager.LoadSceneAsync("Win").completed += delegate (AsyncOperation op) {
+                allChildren.gameObject.SetActive(false);
+                musicPlayer.ResetVolume();
+                musicPlayer.SetAudio(null);
+            };
+        }));
+    }
+
+    public void RestartGame()
+    {
+        otherworldState = new OtherworldManager.State();
+        ReturnFromMinigame(null, false);
+    }
 }

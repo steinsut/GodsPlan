@@ -8,11 +8,11 @@ public class OtherworldManager : MonoBehaviour
 {
     [Serializable]
     public class State {
-        public int day;
-        public int karma;
-        public HumanData[] humanData;
+        public int day = -1;
+        public int karma = 0;
+        public HumanData[] humanData = { };
         public Quaternion scaleRotation;
-        public float musicTime;
+        public float musicTime = 0;
     }
 
     [Header("Objects")]
@@ -51,7 +51,7 @@ public class OtherworldManager : MonoBehaviour
 
     [Header("Game Values")]
     [SerializeField]
-    private int maxDays = 10;
+    private int maxDays = 1;
 
     [SerializeField]
     private AudioClip otherworldMusic;
@@ -64,6 +64,7 @@ public class OtherworldManager : MonoBehaviour
 
     private bool startedDay = false;
     private bool preparedContract = false;
+    private bool gameOver = false;
 
     private void Start() {
         if (!startedDay) { 
@@ -74,6 +75,14 @@ public class OtherworldManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape)){
+            Application.Quit();
+        }
+
+        if (gameOver) {
+            return;
+        }
+
         if (!startedDay) {
             HideContract();
             return;
@@ -160,6 +169,7 @@ public class OtherworldManager : MonoBehaviour
 
         currentKarma += (int)(Mathf.Sign(currentKarma) * ((Random.value > 0.2 ? 1 : 0) * 2))
                     + (int)(Math.Sign(currentKarma) * 2 * Random.value);
+        currentKarma = 0;
         karmaScale.Tip(currentKarma);
 
         dayText.text = "Day " + currentDay;
@@ -171,14 +181,16 @@ public class OtherworldManager : MonoBehaviour
         currentDay++;
         startedDay = false;
         if (currentKarma == -10 || currentKarma == 10) {
-            Debug.Log("you lose lol");
+            LevelManager.Instance.GoToLose();
+            gameOver = true;
         }
         else if(currentDay > maxDays) {
+            gameOver = true;
             if (currentKarma >= -2 || currentKarma <= 2) {
-                Debug.Log("you win lol");
+                LevelManager.Instance.GoToWin();
             }
             else {
-                Debug.Log("you lose lol");
+                LevelManager.Instance.GoToLose();
             }
         }
         else {
@@ -187,6 +199,11 @@ public class OtherworldManager : MonoBehaviour
     }
 
     public void MinigameFinished(bool succeeded, State state) {
+        if(state.day < 0) {
+            PrepareNewDay();
+            return;
+        }
+        
         preparedContract = true;
         startedDay = true;
 
